@@ -48,16 +48,7 @@ header.scrolled{
 }
 
 .logo img {
-    width: 200px;
-}
-
-.logo h2 {
-    font-size: 22px;
-}
-
-.logo span {
-    font-size: 10px;
-    color: #aaa;
+    width: 100px;
 }
 
 nav ul {
