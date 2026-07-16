@@ -7,6 +7,10 @@
     font-family: 'Inter', sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background: #0c0634;
     color: white;
@@ -473,6 +477,12 @@ nav a.active::after{
     text-align: center;
 }
 
+.services-grid1 {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(50px, 1fr));
+    gap: 10px;
+}
+
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -707,6 +717,17 @@ nav a.active::after{
 }
 
 @keyframes fadeUp{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes slideUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
     to{
         opacity:1;
         transform:translateY(0);
@@ -1061,8 +1082,8 @@ animation:floatBackground 12s ease-in-out infinite;
     gap: 5px;
     cursor: pointer;
     z-index: 200;
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
 }
 
 .hamburger span {
@@ -1084,6 +1105,20 @@ animation:floatBackground 12s ease-in-out infinite;
 
 .hamburger.active span:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -6px);
+}
+
+/* ==============================
+   TABLET (1024px and below)
+   ============================== */
+
+@media (max-width: 1024px) {
+    .hero h1 { font-size: 40px; }
+    .content h1 { font-size: 50px; }
+    .services-grid { grid-template-columns: repeat(2, 1fr); gap: 25px; }
+    .why-grid { grid-template-columns: repeat(2, 1fr); gap: 25px; }
+    .benefit-wrapper { grid-template-columns: 1fr; gap: 50px; }
+    .cta-box h2 { font-size: 38px; }
+    .cta-box p { font-size: 17px; }
 }
 
 /* ==============================
@@ -1241,6 +1276,11 @@ animation:floatBackground 12s ease-in-out infinite;
         margin-bottom: 20px;
     }
 
+    .services-grid1 {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
     .services-grid {
         grid-template-columns: 1fr;
         gap: 20px;
@@ -1351,6 +1391,29 @@ animation:floatBackground 12s ease-in-out infinite;
         font-size: 15px;
         justify-content: center;
     }
+
+    /* Premium mobile animations */
+    .why-card, .service-card, .benefit-item {
+        animation: slideUp .6s ease both;
+    }
+    .why-card:nth-child(1), .service-card:nth-child(1), .benefit-item:nth-child(1) { animation-delay: .1s; }
+    .why-card:nth-child(2), .service-card:nth-child(2), .benefit-item:nth-child(2) { animation-delay: .2s; }
+    .why-card:nth-child(3), .service-card:nth-child(3), .benefit-item:nth-child(3) { animation-delay: .3s; }
+    .why-card:nth-child(4), .service-card:nth-child(4) { animation-delay: .4s; }
+    .why-card:nth-child(5), .service-card:nth-child(5) { animation-delay: .5s; }
+
+    /* Stop infinite floating animations on mobile */
+    .cta-box, .why-card, .benefit-item { animation-name: none; }
+
+    /* Tap highlight removal */
+    a, button { -webkit-tap-highlight-color: transparent; }
+
+    /* Disable hover effects on touch */
+    @media (hover: none) and (pointer: coarse) {
+        .why-card:hover, .service-card:hover, .benefit-item:hover {
+            transform: none;
+        }
+    }
 }
 
 /* ==============================
@@ -1390,5 +1453,12 @@ animation:floatBackground 12s ease-in-out infinite;
     .service-card img {
         width: 100px;
         height: 65px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
     }
 }

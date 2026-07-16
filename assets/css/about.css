@@ -7,6 +7,10 @@
     font-family: 'Inter', sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background: #0c0634;
     color: white;
@@ -87,7 +91,7 @@ nav a.active {
     text-align:center;
     background:
     linear-gradient(rgba(7,18,46,.75),rgba(7,18,46,.75)),
-    url(banner.jpeg) center/cover;
+    url(../images/banner.jpeg) center/cover;
     overflow:hidden;
 }
 
@@ -106,6 +110,17 @@ nav a.active {
         opacity:1;
         transform:translateY(0);
 }
+}
+
+@keyframes slideUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
 .about-company{
@@ -272,7 +287,7 @@ nav a.active {
     padding:8px 18px;
     border-radius:50px;
     background:#eef2ff;
-    color:#6c63ff;
+    color:#0b4bc1;
     font-size:13px;
     font-weight:700;
     letter-spacing:1px;
@@ -327,8 +342,8 @@ nav a.active {
     align-items:center;
     justify-content:center;
     padding:16px 38px;
-    border:2px solid #6c63ff;
-    color:#6c63ff;
+    border:2px solid #0b4bc1;
+    color:#0b4bc1;
     text-decoration:none;
     border-radius:50px;
     font-weight:600;
@@ -336,7 +351,7 @@ nav a.active {
 }
 
 .secondary-btn:hover{
-    background:#6c63ff;
+    background:#0b4bc1;
     color:#fff;
     transform:translateY(-5px);
 }
@@ -369,8 +384,8 @@ nav a.active {
     gap: 5px;
     cursor: pointer;
     z-index: 200;
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
 }
 
 .hamburger span {
@@ -392,6 +407,18 @@ nav a.active {
 
 .hamburger.active span:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -6px);
+}
+
+/* =====================================================
+   TABLET (1024px and below)
+   ===================================================== */
+@media (max-width:1024px) {
+    .about-hero h1 { font-size:56px; }
+    .about-company h1 { font-size:42px; }
+    .about-content h2 { font-size:36px; }
+    .mission-grid { grid-template-columns:repeat(2,1fr); gap:25px; }
+    .cta-box h2 { font-size:38px; }
+    .cta-box p { font-size:17px; }
 }
 
 /* =====================================================
@@ -533,6 +560,28 @@ nav a.active {
         width:260px;
     }
 
+    /* Premium mobile animations */
+    .mission-card, .faq-item {
+        animation: slideUp .6s ease both;
+    }
+    .mission-card:nth-child(1), .faq-item:nth-child(1) { animation-delay: .1s; }
+    .mission-card:nth-child(2), .faq-item:nth-child(2) { animation-delay: .2s; }
+    .faq-item:nth-child(3) { animation-delay: .3s; }
+    .faq-item:nth-child(4) { animation-delay: .4s; }
+    .faq-item:nth-child(5) { animation-delay: .5s; }
+
+    /* Stop infinite floating animations on mobile */
+    .cta-box { animation-name: none; }
+
+    /* Tap highlight removal */
+    a, button { -webkit-tap-highlight-color: transparent; }
+
+    /* Disable hover effects on touch */
+    @media (hover: none) and (pointer: coarse) {
+        .mission-card:hover, .faq-item:hover {
+            transform: none;
+        }
+    }
 }
 
 
@@ -653,4 +702,11 @@ nav a.active {
         font-size:15px;
     }
 
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
 }

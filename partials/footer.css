@@ -80,8 +80,8 @@
 }
 
 .social-links a {
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
     background: rgba(255,255,255,0.1);
     color: #fff;
     border-radius: 50%;
@@ -143,5 +143,24 @@
 
     .social-links{
         justify-content:center;
+    }
+}
+
+@media(max-width:480px){
+    .footer{
+        padding:40px 0 15px;
+    }
+
+    .footer-grid{
+        gap:30px;
+    }
+
+    .footer-column h4{
+        font-size:18px;
+    }
+
+    .social-links a{
+        width:44px;
+        height:44px;
     }
 }

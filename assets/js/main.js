@@ -125,3 +125,37 @@ item.classList.add("active");
 });
 
 });
+
+// Touch swipe support for hero slider
+const heroSlider = document.querySelector('.hero-slider');
+let heroTouchStartX = 0;
+
+if (heroSlider) {
+    heroSlider.addEventListener('touchstart', (e) => {
+        heroTouchStartX = e.touches[0].clientX;
+    }, { passive: true });
+
+    heroSlider.addEventListener('touchend', (e) => {
+        const touchEndX = e.changedTouches[0].clientX;
+        const diff = heroTouchStartX - touchEndX;
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) {
+                current++;
+                if (current >= slides.length) current = 0;
+            } else {
+                current--;
+                if (current < 0) current = slides.length - 1;
+            }
+            showSlide(current);
+        }
+    }, { passive: true });
+}
+
+// Make dots clickable
+dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+        current = i;
+        showSlide(current);
+    });
+    dot.style.cursor = 'pointer';
+});

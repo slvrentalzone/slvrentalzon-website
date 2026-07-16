@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rental</title>
-    <link rel="stylesheet" href="about.css">
+    <title>SLV Rentals Zone</title>
+
+    <link rel="stylesheet" href="assets/css/about.css">
 
     <!-- Font Awesome -->
     <link rel="stylesheet"
@@ -24,7 +25,7 @@
 
             <div class="logo">
                 <a href="index.html">
-                <img src="logo.jpeg" alt="Logo">
+                <img src="assets/images/logo.jpeg" alt="Logo">
                 </a>
             </div>
 
@@ -37,8 +38,9 @@
             <nav id="nav-menu">
                 <ul>
                     <li><a class="active" href="index.html">Home</a></li>
-                    <li><a href="#">Rental Services</a></li>
-                    <li><a href="#">Refurbished Products</a></li>
+                    <li><a href="index.html#rental-services">Rental Services</a></li>
+                    <li><a href="index.html#refurbished-products">Refurbished Products</a></li>
+                    <li><a href="amc.html">AMC</a></li>
                     <li><a href="about.html#abouthero">About Us</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
@@ -84,7 +86,7 @@
 
             <div class="about-image" data-aos="slide-right">
 
-            <img src="about.png">
+            <img src="assets/images/about.png">
 
             </div>
 
@@ -114,7 +116,7 @@
             reliable support, so we test and maintain all products we lease and sell.
             </p>
 
-            <a href="#" class="primary-btn">
+            <a href="contact.html" class="primary-btn">
             Contact Us
             </a>
 
@@ -198,7 +200,7 @@
 
 <div id="footer"></div>
 
-    <script src="footer/footer.js"></script>
+    <script src="assets/js/footer.js"></script>
 
 <script>
     const hamburger = document.getElementById("hamburger");
@@ -217,23 +219,14 @@
     });
 </script>
 
-</body>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"> </script>
 
-<script
-src="https://unpkg.com/aos@2.3.4/dist/aos.js">
-</script>
-
-<!---Effects--->
 <script>
-
 AOS.init({
-
     duration:1000,
-
     once:true
-
 });
-
 </script>
 
+</body>
 </html>
