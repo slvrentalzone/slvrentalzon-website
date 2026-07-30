@@ -202,34 +202,54 @@ const scriptURL="https://script.google.com/macros/s/AKfycbzQfms6CAseFL3oCfrk_7vZ
 
 const form = document.getElementById("contactForm");
 const status = document.getElementById("status");
+const submitBtn = form.querySelector('button[type="submit"]');
 
-form.addEventListener("submit", function(e) {
+form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    status.innerHTML = "Submitting...";
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Submitting...";
+    status.innerHTML = "";
 
-    fetch(scriptURL, {
-        method: "POST",
-        body: new FormData(form),
-        mode: "no-cors"
-    })
-    .then(() => {
+    const data = {
+        name: form.name.value,
+        company: form.company.value,
+        email: form.email.value,
+        phone: form.phone.value,
+        service: form.service.value,
+        quantity: form.quantity.value,
+        message: form.message.value
+    };
+
+    try {
+
+        const response = await fetch(scriptURL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "text/plain;charset=utf-8"
+            },
+            body: JSON.stringify(data),
+        });
+
+
+        const result = await response.text();
+        console.log(result);
+
         status.innerHTML = "✅ Enquiry Submitted Successfully";
         form.reset();
-    })
-    .catch(error => {
-        console.error(error);
-        status.innerHTML = "❌ " + error.message;
-    });
-});
 
-function closeForm() {
-    if (document.referrer) {
-        window.history.back();
-    } else {
-        window.location.href = "index.html";
+    } catch (err) {
+        if (err.name === "AbortError") {
+            status.innerHTML = "❌ Request timed out. Please try again.";
+        } else {
+            status.innerHTML = "❌ " + err.message;
+        }
+        console.error(err);
+    } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Submit Enquiry";
     }
-}
+});
 
 </script>
 
