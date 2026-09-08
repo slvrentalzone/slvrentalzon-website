@@ -5,7 +5,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Enquiry Form</title>
+<title>IT Equipment Rental Enquiry | SLV Rental Zone</title>
+
+<meta
+    name="description"
+    content="Submit your enquiry to SLV Rental Zone for desktop, laptop, printer, server, firewall, and other IT equipment rental services in Bangalore.">
+
+<meta name="robots" content="noindex, follow">
+
+<meta name="author" content="SLV Rental Zone">
+
+<meta name="theme-color" content="#16A34A">
+
+<link rel="canonical" href="https://slvrentalzone.in/form.html">
+
 
 <style>
 
@@ -209,42 +222,41 @@ form.addEventListener("submit", async (e) => {
 
     submitBtn.disabled = true;
     submitBtn.textContent = "Submitting...";
-    status.innerHTML = "";
+    status.textContent = "";
 
     const data = {
-        name: form.name.value,
-        company: form.company.value,
-        email: form.email.value,
-        phone: form.phone.value,
-        service: form.service.value,
-        quantity: form.quantity.value,
-        message: form.message.value
+        name: form.elements["name"].value,
+        company: form.elements["company"].value,
+        email: form.elements["email"].value,
+        phone: form.elements["phone"].value,
+        service: form.elements["service"].value,
+        quantity: form.elements["quantity"].value,
+        message: form.elements["message"].value
     };
 
     try {
-
         const response = await fetch(scriptURL, {
             method: "POST",
             headers: {
                 "Content-Type": "text/plain;charset=utf-8"
             },
-            body: JSON.stringify(data),
+            body: JSON.stringify(data)
         });
 
-
         const result = await response.text();
-        console.log(result);
 
-        status.innerHTML = "✅ Enquiry Submitted Successfully";
-        form.reset();
+        console.log("Server response:", result);
 
-    } catch (err) {
-        if (err.name === "AbortError") {
-            status.innerHTML = "❌ Request timed out. Please try again.";
+        if (result.trim() === "Success") {
+            status.innerHTML = "✅ Enquiry Submitted Successfully";
+            form.reset();
         } else {
-            status.innerHTML = "❌ " + err.message;
+            status.innerHTML = "❌ " + result;
         }
-        console.error(err);
+
+    } catch (error) {
+        console.error(error);
+        status.innerHTML = "❌ Failed to submit enquiry: " + error.message;
     } finally {
         submitBtn.disabled = false;
         submitBtn.textContent = "Submit Enquiry";

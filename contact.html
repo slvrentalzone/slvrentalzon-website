@@ -3,7 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SLV Rentals Zone</title>
+    <title>Contact SLV Rental Zone | IT Rental Services in Bangalore</title>
+
+    <meta
+        name="description"
+        content="Contact SLV Rental Zone for desktop, laptop, printer, server, firewall rental, refurbished IT equipment, and AMC services in Bangalore. Get in touch with our team for your requirements.">
+
+    <meta name="robots" content="index, follow, max-image-preview:large">
+
+    <meta name="author" content="SLV Rental Zone">
+
+    <meta name="theme-color" content="#16A34A">
+
+    <link rel="canonical" href="https://slvrentalzone.in/contact.html">
     
     <link rel="stylesheet" href="assets/css/contact.css">
 
@@ -247,25 +259,52 @@ const scriptURL="https://script.google.com/macros/s/AKfycbzQfms6CAseFL3oCfrk_7vZ
 
 const form = document.getElementById("contactForm");
 const status = document.getElementById("status");
+const submitBtn = form.querySelector('button[type="submit"]');
 
-form.addEventListener("submit", function(e) {
+form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    status.innerHTML = "Submitting...";
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Submitting...";
+    status.textContent = "";
 
-    fetch(scriptURL, {
-        method: "POST",
-        body: new FormData(form),
-        mode: "no-cors"
-    })
-    .then(() => {
-        status.innerHTML = "✅ Enquiry Submitted Successfully";
-        form.reset();
-    })
-    .catch(error => {
+    const data = {
+        name: form.elements["name"].value,
+        company: form.elements["company"].value,
+        email: form.elements["email"].value,
+        phone: form.elements["phone"].value,
+        service: form.elements["service"].value,
+        quantity: form.elements["quantity"].value,
+        message: form.elements["message"].value
+    };
+
+    try {
+        const response = await fetch(scriptURL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "text/plain;charset=utf-8"
+            },
+            body: JSON.stringify(data)
+        });
+
+        const result = await response.text();
+
+        console.log("Server response:", result);
+
+        if (result.trim() === "Success") {
+            status.innerHTML = "✅ Enquiry Submitted Successfully";
+            form.reset();
+        } else {
+            status.innerHTML = "❌ " + result;
+        }
+
+    } catch (error) {
         console.error(error);
-        status.innerHTML = "❌ " + error.message;
-    });
+        status.innerHTML = "❌ Failed to submit enquiry: " + error.message;
+    } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Submit Enquiry";
+    }
 });
 
 </script>
@@ -281,5 +320,24 @@ AOS.init({
 });
 </script>
 
+<div class="floating-buttons">
+
+    <a
+        href="https://wa.me/919738277984"
+        class="whatsapp-btn">
+
+        <i class="fa-brands fa-whatsapp"></i>
+
+    </a>
+
+    <a
+        href="tel:+919738277984"
+        class="phone-btn">
+
+        <i class="fa-solid fa-phone"></i>
+
+    </a>
+
+</div>
 </body>
 </html>

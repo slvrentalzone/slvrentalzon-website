@@ -599,6 +599,70 @@ nav a.active {
     transform: rotate(-45deg) translate(5px, -6px);
 }
 
+/*====================
+FLOATING BUTTONS
+====================*/
+
+.floating-buttons{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+
+    z-index:9999;
+}
+
+.floating-buttons a{
+    width:60px;
+    height:60px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    border-radius:50%;
+    text-decoration:none;
+
+    color:#fff;
+    font-size:26px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+
+    transition:all .3s ease;
+}
+
+/* WhatsApp */
+
+.whatsapp-btn{
+    background:#25D366;
+}
+
+.whatsapp-btn:hover{
+    background:#1EBE57;
+    transform:translateY(-5px) scale(1.08);
+    box-shadow:0 15px 35px rgba(37,211,102,.45);
+}
+
+/* Phone */
+
+.phone-btn{
+    background:#2563EB;
+}
+
+.phone-btn:hover{
+    background:#2563EB;
+    transform:translateY(-5px) scale(1.08);
+    box-shadow:0 15px 35px rgba(133, 155, 201, 0.35);;
+}
+
+/* Click Animation */
+
+.floating-buttons a:active{
+    transform:scale(.95);
+}
 /* =====================================================
    TABLET (1024px and below)
    ===================================================== */

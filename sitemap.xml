@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <!-- Homepage -->
+    <url>
+        <loc>https://slvrentalzone.in/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- About -->
+    <url>
+        <loc>https://slvrentalzone.in/about.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- AMC -->
+    <url>
+        <loc>https://slvrentalzone.in/amc.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Contact -->
+    <url>
+        <loc>https://slvrentalzone.in/contact.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Form -->
+    <url>
+        <loc>https://slvrentalzone.in/form.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <!-- Service 1 -->
+    <url>
+        <loc>https://slvrentalzone.in/pages/server_rental.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Service 2 -->
+    <url>
+        <loc>https://slvrentalzone.in/pages/laptop_rental.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Service 3 -->
+    <url>
+        <loc>https://slvrentalzone.in/pages/desktop_rental.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Service 4 -->
+    <url>
+        <loc>https://slvrentalzone.in/pages/firewall_rental.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Service 5 -->
+    <url>
+        <loc>https://slvrentalzone.in/pages/printer_rental.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Service 6 -->
+    <url>
+        <loc>https://slvrentalzone.in/pages/refurbished_laptop.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Service 7 -->
+    <url>
+        <loc>https://slvrentalzone.in/pages/refurbished_server.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Service 8 -->
+    <url>
+        <loc>https://slvrentalzone.in/pages/refurbished_computer.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+</urlset>
