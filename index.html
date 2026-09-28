@@ -53,36 +53,75 @@ function gtag_report_conversion(url) {
 </head>
 <body>
 
-    <header>
-        <div class="container navbar">
+<header>
+    <div class="container navbar">
 
-            <div class="logo">
-                <a href="index.html">
+        <div class="logo">
+            <a href="index.html">
                 <img src="assets/images/logo.jpeg" alt="Logo">
-                </a>
-            </div>
-
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-
-            <nav id="nav-menu">
-                <ul>
-                    <li><a class="active" href="#hero">Home</a></li>
-                    <li><a href="#rental-services">Rental Services</a></li>
-                    <li><a href="#refurbished-products">Refurbished Products</a></li>
-                    <li><a href="amc.html">AMC</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-
-            <a href="form.html" class="quote-btn">Get Quote</a>
-
+            </a>
         </div>
-    </header>
+
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav id="nav-menu">
+            <ul>
+
+                <li>
+                    <a class="active" href="#hero">Home</a>
+                </li>
+
+                <!-- Rental Services -->
+                <li class="dropdown">
+                    <a href="#rental-services">
+                        Rental Services ▾
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="pages/laptop_rental.html">Laptop Rental</a></li>
+                        <li><a href="pages/desktop_rental.html">Desktop Rental</a></li>
+                        <li><a href="pages/printer_rental.html">Printer Rental</a></li>
+                        <li><a href="pages/server_rental.html">Server Rental</a></li>
+                        <li><a href="pages/firewall_rental.html">Firewall Rental</a></li>
+                    </ul>
+                </li>
+
+                <!-- Refurbished Products -->
+                <li class="dropdown">
+                    <a href="#refurbished-products">
+                        Refurbished Products ▾
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="pages/refurbished_laptop.html">Laptops</a></li>
+                        <li><a href="pages/refurbished_computer.html">Desktops</a></li>
+                        <li><a href="pages/refurbished_server.html">Servers</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="amc.html">AMC</a>
+                </li>
+
+                <li>
+                    <a href="about.html">About Us</a>
+                </li>
+
+                <li>
+                    <a href="contact.html">Contact</a>
+                </li>
+
+            </ul>
+        </nav>
+
+        <a href="form.html" class="quote-btn">Get Quote</a>
+
+    </div>
+</header>
 
 <section class="hero-slider" id="hero">
 
@@ -238,92 +277,1037 @@ function gtag_report_conversion(url) {
 
     <div class="container">
 
-        <div class="section-heading">
-            <span>What We Offer</span>
-            <h2>Products & Services</h2>
-            <p>
-               Flexible technology rental services and certified refurbished devices
-                for businesses, start-ups, educational institutes and enterprise organizations.
-            </p>
-        </div>
+    <div class="section-heading">
+        <span class="eyebrow">What We Offer</span>
 
-        <div class="service-category" id="rental-services"> 
+        <h2>Products & Services</h2>
 
-            <h3>Rental Services</h3>
+        <p>
+            Flexible technology rental services and certified refurbished
+            devices for businesses, start-ups, educational institutes
+            and enterprise organizations.
+        </p>
+    </div>
 
-            <div class="services-grid1">
 
-                <div class="service-card">
-                    <img src="assets/icons/server.png" alt="Server Rental">
-                    <h4>Server Rental</h4>
-                    <p>Enterprise rack servers, database servers, and cloud infrastructure.</p>
-                    <a href="pages/server_rental.html">View Details →</a>
-                </div>
+    <!-- FILTERS -->
+    <div class="filters">
 
-                <div class="service-card">
-                    <img src="assets/icons/laptop.png" alt="Laptop Rental">
-                    <h4>Laptop Rental</h4>
-                    <p>Business laptops, gaming laptops, and bulk rentals.</p>
-                    <a href="pages/laptop_rental.html">View Details →</a>
-                </div>
+        <button class="filter-btn active" data-filter="all">
+            All Services
+        </button>
 
-                <div class="service-card">
-                    <img src="assets/icons/computer.png" alt="Computer Rental">
-                    <h4>Computer Rental</h4>
-                    <p>Desktops, workstations, mini PCs, and office systems.</p>
-                    <a href="pages/desktop_rental.html">View Details →</a>
-                </div>
+        <button class="filter-btn" data-filter="laptop">
+            Laptop
+        </button>
 
-                <div class="service-card">
-                    <img src="assets/icons/firewall.png" alt="Firewall Rental">
-                    <h4>Firewall Rental</h4>
-                    <p>Cisco, Fortinet, Sophos, and enterprise security solutions.</p>
-                    <a href="pages/firewall_rental.html">View Details →</a>
-                </div>
+        <button class="filter-btn" data-filter="computer">
+            Computer
+        </button>
 
-                <div class="service-card">
-                    <img src="assets/icons/printer.png" alt="Printer Rental">
-                    <h4>Printer Rental</h4>
-                    <p>Laser, network, multifunction, and commercial printers.</p>
-                    <a href="pages/printer_rental.html">View Details →</a>
-                </div>
+        <button class="filter-btn" data-filter="server">
+            Server
+        </button>
 
-            </div>
+        <button class="filter-btn" data-filter="printer">
+            Printer
+        </button>
 
-        </div>
+        <button class="filter-btn" data-filter="firewall">
+            Firewall
+        </button>
 
-        <div class="service-category" id="refurbished-products">
-
-            <h3>Refurbished Products</h3>
-
-            <div class="services-grid">
-
-                <div class="service-card">
-                    <img src="assets/icons/laptop.png" alt="Refurbished Laptop">
-                    <h4>Refurbished Laptops</h4>
-                    <p>Certified Dell, HP, Lenovo, and Acer laptops.</p>
-                    <a href="pages/refurbished_laptop.html">Explore Laptops →</a>
-                </div>
-
-                <div class="service-card">
-                    <img src="assets/icons/server.png" alt="Refurbished Servers">
-                    <h4>Refurbished Servers</h4>
-                    <p>Dell PowerEdge, HP ProLiant, IBM, Lenovo servers.</p>
-                    <a href="pages/refurbished_server.html">Explore Servers →</a>
-                </div>
-
-                <div class="service-card">
-                    <img src="assets/icons/computer.png" alt="Refurbished Computers">
-                    <h4>Refurbished Computers</h4>
-                    <p>Dell, HP, Acer, Asus, Lenovo servers.</p>
-                    <a href="pages/refurbished_computer.html">Explore Computers →</a>
-                </div>
-
-            </div>
-
-        </div>
+        <button class="filter-btn" data-filter="refurbished">
+            Refurbished
+        </button>
 
     </div>
+
+
+    <!-- SERVICES GRID -->
+    <div class="vehicle-grid">
+        <!-- =====================================================
+             LAPTOP SERVICES
+        ====================================================== -->
+
+        <article class="vehicle-card" data-category="laptop">
+            <div class="vehicle-image">
+                <img src="assets/images/business_laptop.jpg"
+                     alt="Business Laptop Rental" loading="lazy">
+
+                <span class="vehicle-type">Laptop</span>
+
+                <span class="vehicle-seats">
+                    <i class="fa-solid fa-laptop"></i> Business
+                </span>
+            </div>
+
+            <div class="vehicle-body">
+                <h3>Business Laptop Rental</h3>
+
+                <p class="vehicle-description">
+                    Professional laptops for offices, employees, meetings,
+                    conferences and corporate projects.
+                </p>
+
+                <div class="vehicle-meta">
+                    <span><i class="fa-solid fa-laptop"></i> Business</span>
+                    <span><i class="fa-solid fa-briefcase"></i> Corporate</span>
+                    <span><i class="fa-solid fa-users"></i> Bulk</span>
+                    <span><i class="fa-solid fa-wifi"></i> Ready to Use</span>
+                </div>
+
+                <div class="vehicle-bottom">
+                    <div class="price">
+                        <strong>Get Quote</strong>
+                        <small>Daily / Weekly / Monthly</small>
+                    </div>
+
+                    <div class="card-actions">
+                        <a href="pages/laptop_rental.html"
+                           class="card-btn book-card">View Details</a>
+
+                        <a href="https://wa.me/YOURWHATSAPPNUMBER"
+                           class="card-btn whatsapp-card"
+                           target="_blank" rel="noopener">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+
+        <article class="vehicle-card" data-category="laptop">
+            <div class="vehicle-image">
+                <img src="assets/images/gaming_laptop.png"
+                     alt="Gaming Laptop Rental" loading="lazy">
+
+                <span class="vehicle-type">Laptop</span>
+
+                <span class="vehicle-seats">
+                    <i class="fa-solid fa-gamepad"></i> Gaming
+                </span>
+            </div>
+
+            <div class="vehicle-body">
+                <h3>Gaming Laptop Rental</h3>
+
+                <p class="vehicle-description">
+                    High-performance gaming laptops for gaming events,
+                    demonstrations, development and demanding applications.
+                </p>
+
+                <div class="vehicle-meta">
+                    <span><i class="fa-solid fa-gamepad"></i> Gaming</span>
+                    <span><i class="fa-solid fa-bolt"></i> High Performance</span>
+                    <span><i class="fa-solid fa-display"></i> Graphics</span>
+                    <span><i class="fa-solid fa-memory"></i> High RAM</span>
+                </div>
+
+                <div class="vehicle-bottom">
+                    <div class="price">
+                        <strong>Get Quote</strong>
+                        <small>Flexible rental plans</small>
+                    </div>
+
+                    <div class="card-actions">
+                        <a href="pages/laptop_rental.html"
+                           class="card-btn book-card">View Details</a>
+
+                        <a href="https://wa.me/YOURWHATSAPPNUMBER"
+                           class="card-btn whatsapp-card"
+                           target="_blank" rel="noopener">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+
+        <article class="vehicle-card" data-category="laptop">
+            <div class="vehicle-image">
+                <img src="assets/images/mac.png"
+                     alt="MacBook Rental" loading="lazy">
+
+                <span class="vehicle-type">Laptop</span>
+
+                <span class="vehicle-seats">
+                    <i class="fa-brands fa-apple"></i> MacBook
+                </span>
+            </div>
+
+            <div class="vehicle-body">
+                <h3>MacBook Rental</h3>
+
+                <p class="vehicle-description">
+                    Apple MacBook systems for creative work, development,
+                    presentations, training and professional projects.
+                </p>
+
+                <div class="vehicle-meta">
+                    <span><i class="fa-brands fa-apple"></i> Apple</span>
+                    <span><i class="fa-solid fa-code"></i> Development</span>
+                    <span><i class="fa-solid fa-video"></i> Creative</span>
+                    <span><i class="fa-solid fa-briefcase"></i> Professional</span>
+                </div>
+
+                <div class="vehicle-bottom">
+                    <div class="price">
+                        <strong>Get Quote</strong>
+                        <small>Subject to availability</small>
+                    </div>
+
+                    <div class="card-actions">
+                        <a href="pages/laptop_rental.html"
+                           class="card-btn book-card">View Details</a>
+
+                        <a href="https://wa.me/YOURWHATSAPPNUMBER"
+                           class="card-btn whatsapp-card"
+                           target="_blank" rel="noopener">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+
+        <article class="vehicle-card" data-category="laptop">
+            <div class="vehicle-image">
+                <img src="assets/images/bulk_laptop.png"
+                     alt="Bulk Laptop Rental" loading="lazy">
+
+                <span class="vehicle-type">Laptop</span>
+
+                <span class="vehicle-seats">
+                    <i class="fa-solid fa-users"></i> Bulk
+                </span>
+            </div>
+
+            <div class="vehicle-body">
+                <h3>Bulk Laptop Rental</h3>
+
+                <p class="vehicle-description">
+                    Large quantities of laptops for training programs,
+                    conferences, examinations, workshops and events.
+                </p>
+
+                <div class="vehicle-meta">
+                    <span><i class="fa-solid fa-users"></i> Bulk</span>
+                    <span><i class="fa-solid fa-calendar"></i> Events</span>
+                    <span><i class="fa-solid fa-graduation-cap"></i> Training</span>
+                    <span><i class="fa-solid fa-truck"></i> Delivery</span>
+                </div>
+
+                <div class="vehicle-bottom">
+                    <div class="price">
+                        <strong>Get Quote</strong>
+                        <small>Bulk pricing available</small>
+                    </div>
+
+                    <div class="card-actions">
+                        <a href="pages/laptop_rental.html"
+                           class="card-btn book-card">View Details</a>
+
+                        <a href="https://wa.me/YOURWHATSAPPNUMBER"
+                           class="card-btn whatsapp-card"
+                           target="_blank" rel="noopener">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+
+        <!-- =====================================================
+             COMPUTER SERVICES
+        ====================================================== -->
+
+        <article class="vehicle-card" data-category="computer">
+            <div class="vehicle-image">
+                <img src="assets/images/desktop.png"
+                     alt="Desktop Computer Rental" loading="lazy">
+
+                <span class="vehicle-type">Computer</span>
+
+                <span class="vehicle-seats">
+                    <i class="fa-solid fa-desktop"></i> Desktop
+                </span>
+            </div>
+
+            <div class="vehicle-body">
+                <h3>Desktop Computer Rental</h3>
+
+                <p class="vehicle-description">
+                    Reliable desktop computers for offices, institutions,
+                    training centers and temporary projects.
+                </p>
+
+                <div class="vehicle-meta">
+                    <span><i class="fa-solid fa-desktop"></i> Desktop</span>
+                    <span><i class="fa-solid fa-building"></i> Office</span>
+                    <span><i class="fa-solid fa-users"></i> Bulk</span>
+                    <span><i class="fa-solid fa-network-wired"></i> Network</span>
+                </div>
+
+                <div class="vehicle-bottom">
+                    <div class="price">
+                        <strong>Get Quote</strong>
+                        <small>Flexible rental plans</small>
+                    </div>
+
+                    <div class="card-actions">
+                        <a href="pages/desktop_rental.html"
+                           class="card-btn book-card">View Details</a>
+
+                        <a href="https://wa.me/YOURWHATSAPPNUMBER"
+                           class="card-btn whatsapp-card"
+                           target="_blank" rel="noopener">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+
+        <article class="vehicle-card" data-category="computer">
+            <div class="vehicle-image">
+                <img src="assets/images/desktop_.png"
+                     alt="Workstation Rental" loading="lazy">
+
+                <span class="vehicle-type">Computer</span>
+
+                <span class="vehicle-seats">
+                    <i class="fa-solid fa-microchip"></i> Workstation
+                </span>
+            </div>
+
+            <div class="vehicle-body">
+                <h3>Workstation Rental</h3>
+
+                <p class="vehicle-description">
+                    High-performance workstations for CAD, engineering,
+                    architecture, 3D design and professional applications.
+                </p>
+
+                <div class="vehicle-meta">
+                    <span><i class="fa-solid fa-microchip"></i> Powerful CPU</span>
+                    <span><i class="fa-solid fa-display"></i> Graphics</span>
+                    <span><i class="fa-solid fa-memory"></i> High RAM</span>
+                    <span><i class="fa-solid fa-cube"></i> 3D / CAD</span>
+                </div>
+
+                <div class="vehicle-bottom">
+                    <div class="price">
+                        <strong>Get Quote</strong>
+                        <small>Custom configuration</small>
+                    </div>
+
+                    <div class="card-actions">
+                        <a href="pages/desktop_rental.html"
+                           class="card-btn book-card">View Details</a>
+
+                        <a href="https://wa.me/YOURWHATSAPPNUMBER"
+                           class="card-btn whatsapp-card"
+                           target="_blank" rel="noopener">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+
+        <article class="vehicle-card" data-category="computer">
+            <div class="vehicle-image">
+                <img src="assets/images/mini_pc.png"
+                     alt="Mini PC Rental" loading="lazy">
+
+                <span class="vehicle-type">Computer</span>
+
+                <span class="vehicle-seats">
+                    <i class="fa-solid fa-computer"></i> Mini PC
+                </span>
+            </div>
+
+            <div class="vehicle-body">
+                <h3>Mini PC Rental</h3>
+
+                <p class="vehicle-description">
+                    Compact and efficient mini PCs for offices, kiosks,
+                    digital signage, reception desks and business use.
+                </p>
+
+                <div class="vehicle-meta">
+                    <span><i class="fa-solid fa-computer"></i> Compact</span>
+                    <span><i class="fa-solid fa-bolt"></i> Efficient</span>
+                    <span><i class="fa-solid fa-building"></i> Office</span>
+                    <span><i class="fa-solid fa-display"></i> Display</span>
+                </div>
+
+                <div class="vehicle-bottom">
+                    <div class="price">
+                        <strong>Get Quote</strong>
+                        <small>Flexible rental plans</small>
+                    </div>
+
+                    <div class="card-actions">
+                        <a href="pages/desktop_rental.html"
+                           class="card-btn book-card">View Details</a>
+
+                        <a href="https://wa.me/YOURWHATSAPPNUMBER"
+                           class="card-btn whatsapp-card"
+                           target="_blank" rel="noopener">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+         <!-- =====================================================
+             SERVER SERVICES
+        ====================================================== -->
+
+        <article class="vehicle-card" data-category="server">
+            <div class="vehicle-image">
+                <img src="assets/images/rack_server.png"
+                     alt="Rack Server Rental" loading="lazy">
+
+                <span class="vehicle-type">Server</span>
+
+                <span class="vehicle-seats">
+                    <i class="fa-solid fa-server"></i> Rack Server
+                </span>
+            </div>
+
+            <div class="vehicle-body">
+                <h3>Rack Server Rental</h3>
+
+                <p class="vehicle-description">
+                    Enterprise rack servers for data centers, applications,
+                    virtualization and business infrastructure.
+                </p>
+
+                <div class="vehicle-meta">
+                    <span><i class="fa-solid fa-server"></i> Rack</span>
+                    <span><i class="fa-solid fa-microchip"></i> Xeon</span>
+                    <span><i class="fa-solid fa-memory"></i> High RAM</span>
+                    <span><i class="fa-solid fa-building"></i> Enterprise</span>
+                </div>
+
+                <div class="vehicle-bottom">
+                    <div class="price">
+                        <strong>Get Quote</strong>
+                        <small>Flexible rental plans</small>
+                    </div>
+
+                    <div class="card-actions">
+                        <a href="pages/server_rental.html"
+                           class="card-btn book-card">View Details</a>
+
+                        <a href="https://wa.me/YOURWHATSAPPNUMBER"
+                           class="card-btn whatsapp-card"
+                           target="_blank" rel="noopener">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+
+        <article class="vehicle-card" data-category="server">
+            <div class="vehicle-image">
+                <img src="assets/images/tower_server.png"
+                     alt="Tower Server Rental" loading="lazy">
+
+                <span class="vehicle-type">Server</span>
+
+                <span class="vehicle-seats">
+                    <i class="fa-solid fa-server"></i> Tower
+                </span>
+            </div>
+
+            <div class="vehicle-body">
+                <h3>Tower Server Rental</h3>
+
+                <p class="vehicle-description">
+                    Reliable tower servers for offices, small businesses,
+                    file servers and application hosting.
+                </p>
+
+                <div class="vehicle-meta">
+                    <span><i class="fa-solid fa-server"></i> Tower</span>
+                    <span><i class="fa-solid fa-database"></i> Database</span>
+                    <span><i class="fa-solid fa-hard-drive"></i> Storage</span>
+                    <span><i class="fa-solid fa-network-wired"></i> Network</span>
+                </div>
+
+                <div class="vehicle-bottom">
+                    <div class="price">
+                        <strong>Get Quote</strong>
+                        <small>Flexible rental plans</small>
+                    </div>
+
+                    <div class="card-actions">
+                        <a href="pages/server_rental.html"
+                           class="card-btn book-card">View Details</a>
+
+                        <a href="https://wa.me/YOURWHATSAPPNUMBER"
+                           class="card-btn whatsapp-card"
+                           target="_blank" rel="noopener">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+
+        <article class="vehicle-card" data-category="server">
+            <div class="vehicle-image">
+                <img src="assets/images/database_server.png"
+                     alt="Database Server Rental" loading="lazy">
+
+                <span class="vehicle-type">Server</span>
+
+                <span class="vehicle-seats">
+                    <i class="fa-solid fa-database"></i> Database
+                </span>
+            </div>
+
+            <div class="vehicle-body">
+                <h3>Database Server Rental</h3>
+
+                <p class="vehicle-description">
+                    High-performance infrastructure for database workloads,
+                    ERP systems, applications and business data.
+                </p>
+
+                <div class="vehicle-meta">
+                    <span><i class="fa-solid fa-database"></i> Database</span>
+                    <span><i class="fa-solid fa-bolt"></i> Performance</span>
+                    <span><i class="fa-solid fa-memory"></i> High RAM</span>
+                    <span><i class="fa-solid fa-shield"></i> Reliable</span>
+                </div>
+
+                <div class="vehicle-bottom">
+                    <div class="price">
+                        <strong>Get Quote</strong>
+                        <small>Custom configuration</small>
+                    </div>
+
+                    <div class="card-actions">
+                        <a href="pages/server_rental.html"
+                           class="card-btn book-card">View Details</a>
+
+                        <a href="https://wa.me/YOURWHATSAPPNUMBER"
+                           class="card-btn whatsapp-card"
+                           target="_blank" rel="noopener">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- =====================================================
+             PRINTER SERVICES
+        ====================================================== -->
+
+        <article class="vehicle-card" data-category="printer">
+            <div class="vehicle-image">
+                <img src="assets/images/laser.png"
+                     alt="Laser Printer Rental" loading="lazy">
+
+                <span class="vehicle-type">Printer</span>
+
+                <span class="vehicle-seats">
+                    <i class="fa-solid fa-print"></i> Laser
+                </span>
+            </div>
+
+            <div class="vehicle-body">
+                <h3>Laser Printer Rental</h3>
+
+                <p class="vehicle-description">
+                    Fast and reliable laser printers for offices,
+                    temporary projects, events and business requirements.
+                </p>
+
+                <div class="vehicle-meta">
+                    <span><i class="fa-solid fa-print"></i> Laser</span>
+                    <span><i class="fa-solid fa-bolt"></i> Fast</span>
+                    <span><i class="fa-solid fa-file"></i> Documents</span>
+                    <span><i class="fa-solid fa-building"></i> Office</span>
+                </div>
+
+                <div class="vehicle-bottom">
+                    <div class="price">
+                        <strong>Get Quote</strong>
+                        <small>Flexible rental plans</small>
+                    </div>
+
+                    <div class="card-actions">
+                        <a href="pages/printer_rental.html"
+                           class="card-btn book-card">View Details</a>
+
+                        <a href="https://wa.me/YOURWHATSAPPNUMBER"
+                           class="card-btn whatsapp-card"
+                           target="_blank" rel="noopener">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+
+        <article class="vehicle-card" data-category="printer">
+            <div class="vehicle-image">
+                <img src="assets/images/multifunction.png"
+                     alt="Multifunction Printer Rental" loading="lazy">
+
+                <span class="vehicle-type">Printer</span>
+
+                <span class="vehicle-seats">
+                    <i class="fa-solid fa-copy"></i> MFP
+                </span>
+            </div>
+
+            <div class="vehicle-body">
+                <h3>Multifunction Printer Rental</h3>
+
+                <p class="vehicle-description">
+                    Multifunction printers with printing, scanning and
+                    copying capabilities for offices and organizations.
+                </p>
+
+                <div class="vehicle-meta">
+                    <span><i class="fa-solid fa-print"></i> Print</span>
+                    <span><i class="fa-solid fa-copy"></i> Copy</span>
+                    <span><i class="fa-solid fa-file-pdf"></i> Scan</span>
+                    <span><i class="fa-solid fa-network-wired"></i> Network</span>
+                </div>
+
+                <div class="vehicle-bottom">
+                    <div class="price">
+                        <strong>Get Quote</strong>
+                        <small>Flexible rental plans</small>
+                    </div>
+
+                    <div class="card-actions">
+                        <a href="pages/printer_rental.html"
+                           class="card-btn book-card">View Details</a>
+
+                        <a href="https://wa.me/YOURWHATSAPPNUMBER"
+                           class="card-btn whatsapp-card"
+                           target="_blank" rel="noopener">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+
+        <article class="vehicle-card" data-category="printer">
+            <div class="vehicle-image">
+                <img src="assets/images/network.png"
+                     alt="Network Printer Rental" loading="lazy">
+
+                <span class="vehicle-type">Printer</span>
+
+                <span class="vehicle-seats">
+                    <i class="fa-solid fa-network-wired"></i> Network
+                </span>
+            </div>
+
+            <div class="vehicle-body">
+                <h3>Network Printer Rental</h3>
+
+                <p class="vehicle-description">
+                    Network-enabled printers for shared office printing,
+                    departments and corporate environments.
+                </p>
+
+                <div class="vehicle-meta">
+                    <span><i class="fa-solid fa-network-wired"></i> Network</span>
+                    <span><i class="fa-solid fa-print"></i> Printing</span>
+                    <span><i class="fa-solid fa-users"></i> Multi User</span>
+                    <span><i class="fa-solid fa-building"></i> Corporate</span>
+                </div>
+
+                <div class="vehicle-bottom">
+                    <div class="price">
+                        <strong>Get Quote</strong>
+                        <small>Flexible rental plans</small>
+                    </div>
+
+                    <div class="card-actions">
+                        <a href="pages/printer_rental.html"
+                           class="card-btn book-card">View Details</a>
+
+                        <a href="https://wa.me/YOURWHATSAPPNUMBER"
+                           class="card-btn whatsapp-card"
+                           target="_blank" rel="noopener">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- =====================================================
+             FIREWALL SERVICES
+        ====================================================== -->
+
+        <article class="vehicle-card" data-category="firewall">
+            <div class="vehicle-image">
+                <img src="assets/images/fortinet.png"
+                     alt="Fortinet Firewall Rental" loading="lazy">
+
+                <span class="vehicle-type">Firewall</span>
+
+                <span class="vehicle-seats">
+                    <i class="fa-solid fa-shield-halved"></i> Fortinet
+                </span>
+            </div>
+
+            <div class="vehicle-body">
+                <h3>Fortinet Firewall Rental</h3>
+
+                <p class="vehicle-description">
+                    Fortinet firewall solutions for network security,
+                    traffic control and enterprise protection.
+                </p>
+
+                <div class="vehicle-meta">
+                    <span><i class="fa-solid fa-shield-halved"></i> Security</span>
+                    <span><i class="fa-solid fa-network-wired"></i> Network</span>
+                    <span><i class="fa-solid fa-lock"></i> Protection</span>
+                    <span><i class="fa-solid fa-building"></i> Enterprise</span>
+                </div>
+
+                <div class="vehicle-bottom">
+                    <div class="price">
+                        <strong>Get Quote</strong>
+                        <small>Flexible rental plans</small>
+                    </div>
+
+                    <div class="card-actions">
+                        <a href="pages/firewall_rental.html"
+                           class="card-btn book-card">View Details</a>
+
+                        <a href="https://wa.me/YOURWHATSAPPNUMBER"
+                           class="card-btn whatsapp-card"
+                           target="_blank" rel="noopener">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+
+        <article class="vehicle-card" data-category="firewall">
+            <div class="vehicle-image">
+                <img src="assets/images/cisco.png"
+                     alt="Cisco Firewall Rental" loading="lazy">
+
+                <span class="vehicle-type">Firewall</span>
+
+                <span class="vehicle-seats">
+                    <i class="fa-solid fa-shield"></i> Cisco
+                </span>
+            </div>
+
+            <div class="vehicle-body">
+                <h3>Cisco Firewall Rental</h3>
+
+                <p class="vehicle-description">
+                    Cisco security appliances for business networks,
+                    branch offices and enterprise infrastructure.
+                </p>
+
+                <div class="vehicle-meta">
+                    <span><i class="fa-solid fa-shield"></i> Cisco</span>
+                    <span><i class="fa-solid fa-network-wired"></i> Networking</span>
+                    <span><i class="fa-solid fa-lock"></i> Secure</span>
+                    <span><i class="fa-solid fa-building"></i> Business</span>
+                </div>
+
+                <div class="vehicle-bottom">
+                    <div class="price">
+                        <strong>Get Quote</strong>
+                        <small>Custom configuration</small>
+                    </div>
+
+                    <div class="card-actions">
+                        <a href="pages/firewall_rental.html"
+                           class="card-btn book-card">View Details</a>
+
+                        <a href="https://wa.me/YOURWHATSAPPNUMBER"
+                           class="card-btn whatsapp-card"
+                           target="_blank" rel="noopener">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+
+        <article class="vehicle-card" data-category="firewall">
+            <div class="vehicle-image">
+                <img src="assets/images/sophos.png"
+                     alt="Sophos Firewall Rental" loading="lazy">
+
+                <span class="vehicle-type">Firewall</span>
+
+                <span class="vehicle-seats">
+                    <i class="fa-solid fa-shield-halved"></i> Sophos
+                </span>
+            </div>
+
+            <div class="vehicle-body">
+                <h3>Sophos Firewall Rental</h3>
+
+                <p class="vehicle-description">
+                    Sophos firewall solutions for secure networks,
+                    remote access and business connectivity.
+                </p>
+
+                <div class="vehicle-meta">
+                    <span><i class="fa-solid fa-shield-halved"></i> Sophos</span>
+                    <span><i class="fa-solid fa-lock"></i> Security</span>
+                    <span><i class="fa-solid fa-globe"></i> Internet</span>
+                    <span><i class="fa-solid fa-building"></i> Business</span>
+                </div>
+
+                <div class="vehicle-bottom">
+                    <div class="price">
+                        <strong>Get Quote</strong>
+                        <small>Flexible rental plans</small>
+                    </div>
+
+                    <div class="card-actions">
+                        <a href="pages/firewall_rental.html"
+                           class="card-btn book-card">View Details</a>
+
+                        <a href="https://wa.me/YOURWHATSAPPNUMBER"
+                           class="card-btn whatsapp-card"
+                           target="_blank" rel="noopener">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- =====================================================
+             REFURBISHED SERVICES
+        ====================================================== -->
+
+        <article class="vehicle-card" data-category="refurbished">
+            <div class="vehicle-image">
+                <img src="assets/images/r_laptop.png"
+                     alt="Refurbished Laptop" loading="lazy">
+
+                <span class="vehicle-type">Refurbished</span>
+
+                <span class="vehicle-seats">
+                    <i class="fa-solid fa-laptop"></i> Laptop
+                </span>
+            </div>
+
+            <div class="vehicle-body">
+                <h3>Refurbished Laptops</h3>
+
+                <p class="vehicle-description">
+                    Tested refurbished laptops from Dell, HP, Lenovo and
+                    Acer for business, education and personal use.
+                </p>
+
+                <div class="vehicle-meta">
+                    <span><i class="fa-solid fa-laptop"></i> Laptop</span>
+                    <span><i class="fa-solid fa-circle-check"></i> Tested</span>
+                    <span><i class="fa-solid fa-tag"></i> Value</span>
+                    <span><i class="fa-solid fa-shield-halved"></i> Warranty*</span>
+                </div>
+
+                <div class="vehicle-bottom">
+                    <div class="price">
+                        <strong>Get Quote</strong>
+                        <small>Subject to availability</small>
+                    </div>
+
+                    <div class="card-actions">
+                        <a href="pages/refurbished_laptop.html"
+                           class="card-btn book-card">View Laptops</a>
+
+                        <a href="https://wa.me/YOURWHATSAPPNUMBER"
+                           class="card-btn whatsapp-card"
+                           target="_blank" rel="noopener">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+
+        <article class="vehicle-card" data-category="refurbished">
+            <div class="vehicle-image">
+                <img src="assets/images/r_server.png"
+                     alt="Refurbished Server" loading="lazy">
+
+                <span class="vehicle-type">Refurbished</span>
+
+                <span class="vehicle-seats">
+                    <i class="fa-solid fa-server"></i> Server
+                </span>
+            </div>
+
+            <div class="vehicle-body">
+                <h3>Refurbished Servers</h3>
+
+                <p class="vehicle-description">
+                    Tested Dell PowerEdge, HP ProLiant, IBM and Lenovo
+                    servers for business and enterprise environments.
+                </p>
+
+                <div class="vehicle-meta">
+                    <span><i class="fa-solid fa-server"></i> PowerEdge</span>
+                    <span><i class="fa-solid fa-server"></i> ProLiant</span>
+                    <span><i class="fa-solid fa-circle-check"></i> Tested</span>
+                    <span><i class="fa-solid fa-building"></i> Enterprise</span>
+                </div>
+
+                <div class="vehicle-bottom">
+                    <div class="price">
+                        <strong>Get Quote</strong>
+                        <small>Subject to availability</small>
+                    </div>
+
+                    <div class="card-actions">
+                        <a href="pages/refurbished_server.html"
+                           class="card-btn book-card">View Servers</a>
+
+                        <a href="https://wa.me/YOURWHATSAPPNUMBER"
+                           class="card-btn whatsapp-card"
+                           target="_blank" rel="noopener">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+
+        <article class="vehicle-card" data-category="refurbished">
+            <div class="vehicle-image">
+                <img src="assets/images/r_desktop.jpg"
+                     alt="Refurbished Desktop Computer" loading="lazy">
+
+                <span class="vehicle-type">Refurbished</span>
+
+                <span class="vehicle-seats">
+                    <i class="fa-solid fa-desktop"></i> Desktop
+                </span>
+            </div>
+
+            <div class="vehicle-body">
+                <h3>Refurbished Computers</h3>
+
+                <p class="vehicle-description">
+                    Affordable refurbished Dell, HP, Acer, Asus and Lenovo
+                    desktop systems for offices and institutions.
+                </p>
+
+                <div class="vehicle-meta">
+                    <span><i class="fa-solid fa-desktop"></i> Desktop</span>
+                    <span><i class="fa-solid fa-circle-check"></i> Tested</span>
+                    <span><i class="fa-solid fa-tag"></i> Value</span>
+                    <span><i class="fa-solid fa-building"></i> Office</span>
+                </div>
+
+                <div class="vehicle-bottom">
+                    <div class="price">
+                        <strong>Get Quote</strong>
+                        <small>Subject to availability</small>
+                    </div>
+
+                    <div class="card-actions">
+                        <a href="pages/refurbished_computer.html"
+                           class="card-btn book-card">View Computers</a>
+
+                        <a href="https://wa.me/YOURWHATSAPPNUMBER"
+                           class="card-btn whatsapp-card"
+                           target="_blank" rel="noopener">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+
+        <article class="vehicle-card" data-category="refurbished">
+            <div class="vehicle-image">
+                <img src="assets/images/r_workstation.png"
+                     alt="Refurbished Workstation" loading="lazy">
+
+                <span class="vehicle-type">Refurbished</span>
+
+                <span class="vehicle-seats">
+                    <i class="fa-solid fa-microchip"></i> Workstation
+                </span>
+            </div>
+
+            <div class="vehicle-body">
+                <h3>Refurbished Workstations</h3>
+
+                <p class="vehicle-description">
+                    Professionally tested workstations for CAD, engineering,
+                    graphics, development and business applications.
+                </p>
+
+                <div class="vehicle-meta">
+                    <span><i class="fa-solid fa-microchip"></i> Workstation</span>
+                    <span><i class="fa-solid fa-display"></i> Graphics</span>
+                    <span><i class="fa-solid fa-circle-check"></i> Tested</span>
+                    <span><i class="fa-solid fa-tag"></i> Value</span>
+                </div>
+
+                <div class="vehicle-bottom">
+                    <div class="price">
+                        <strong>Get Quote</strong>
+                        <small>Subject to availability</small>
+                    </div>
+
+                    <div class="card-actions">
+                        <a href="pages/refurbished_computer.html"
+                           class="card-btn book-card">View Details</a>
+
+                        <a href="https://wa.me/YOURWHATSAPPNUMBER"
+                           class="card-btn whatsapp-card"
+                           target="_blank" rel="noopener">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+    </div>
+</div>
+
 
 </section>
 
@@ -503,6 +1487,7 @@ AOS.init({
 });
 </script>
 
+<script> document.addEventListener("DOMContentLoaded", function () { const filterButtons = document.querySelectorAll( ".services-section .filter-btn" ); const serviceCards = document.querySelectorAll( ".services-section .vehicle-card" ); filterButtons.forEach(function (button) { button.addEventListener("click", function () { const filter = this.getAttribute("data-filter"); /* Active button */ filterButtons.forEach(function (btn) { btn.classList.remove("active"); }); this.classList.add("active"); /* Filter cards */ serviceCards.forEach(function (card) { const category = card.getAttribute("data-category"); if (filter === "all" || category === filter) { card.style.display = "flex"; requestAnimationFrame(function () { card.style.opacity = "1"; card.style.transform = "translateY(0)"; }); } else { card.style.opacity = "0"; card.style.transform = "translateY(10px)"; setTimeout(function () { card.style.display = "none"; }, 200); } }); }); }); }); </script>
 <div class="floating-buttons">
 
     <a

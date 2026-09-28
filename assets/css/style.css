@@ -99,6 +99,128 @@ nav a.active::after{
     font-weight: 600;
 }
 
+/* =========================================================
+   DROPDOWN MENU
+========================================================= */
+
+.dropdown {
+    position: relative;
+}
+
+/* Parent link */
+.dropdown > a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Arrow */
+.dropdown-arrow {
+    font-size: 11px;
+    transition: transform 0.3s ease;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 15px);
+    left: 0;
+
+    min-width: 230px;
+
+    margin: 0;
+    padding: 8px 0;
+
+    display: block;
+
+    list-style: none;
+
+    background: #ffffff;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.18);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(10px);
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease,
+        transform 0.25s ease;
+
+    z-index: 9999;
+}
+
+/* Small top spacing bridge */
+.dropdown-menu::before {
+    content: "";
+    position: absolute;
+
+    top: -15px;
+    left: 0;
+
+    width: 100%;
+    height: 15px;
+}
+
+/* Dropdown items */
+.dropdown-menu li {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Dropdown links */
+.dropdown-menu li a {
+    display: block;
+
+    width: 100%;
+
+    padding: 12px 18px;
+
+    color: #333 !important;
+
+    font-size: 14px;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        padding-left 0.25s ease;
+}
+
+/* Remove main nav underline from dropdown links */
+.dropdown-menu li a::after {
+    display: none;
+}
+
+/* Hover */
+.dropdown-menu li a:hover {
+    background: #fff4f4;
+    color: #cc2326 !important;
+    padding-left: 23px;
+}
+
+/* Show dropdown */
+.dropdown:hover > .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Rotate arrow */
+.dropdown:hover .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+
 .hero {
     min-height: 100vh;
     background:
@@ -439,96 +561,6 @@ nav a.active::after{
     width: 90%;
     max-width: 1400px;
     margin: auto;
-}
-
-.section-heading {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.section-heading span {
-    color: #0b4bc1;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.section-heading h2 {
-    font-size: 42px;
-    margin: 15px 0;
-    color: #222;
-}
-
-.section-heading p {
-    max-width: 700px;
-    margin: auto;
-    color: #666;
-    line-height: 1.8;
-}
-
-.service-category {
-    margin-bottom: 80px;
-}
-
-.service-category h3 {
-    font-size: 30px;
-    margin-bottom: 30px;
-    color: #222;
-    text-align: center;
-}
-
-.services-grid1 {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(50px, 1fr));
-    gap: 10px;
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-}
-
-.service-card {
-    background: #fff;
-    padding: 30px;
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    transition: 0.3s;
-}
-
-.service-card:hover {
-    transform: translateY(-10px);
-}
-
-.service-card img {
-    width: 180px;
-    height: 120px;
-    object-fit: contain;
-    margin-bottom: 20px;
-    transition:.5s;
-}
-
-.service-card:hover img{
-    transform:scale(1.12) rotate(-3deg);
-}
-
-.service-card h4 {
-    margin-bottom: 15px;
-    color: #222;
-}
-
-.service-card p {
-    color: #666;
-    line-height: 1.7;
-    margin-bottom: 20px;
-}
-
-.service-card a {
-    text-decoration: none;
-    color: #0b4bc1;
-    font-weight: 600;
 }
 
 /*==============================
@@ -1172,62 +1204,807 @@ animation:floatBackground 12s ease-in-out infinite;
     transform: rotate(-45deg) translate(5px, -6px);
 }
 
-/* ==============================
-   TABLET (1024px and below)
-   ============================== */
+/* =========================================================
+   PRODUCTS & SERVICES
+========================================================= */
 
-@media (max-width: 1024px) {
-    .hero h1 { font-size: 40px; }
-    .content h1 { font-size: 50px; }
-    .services-grid { grid-template-columns: repeat(2, 1fr); gap: 25px; }
-    .why-grid { grid-template-columns: repeat(2, 1fr); gap: 25px; }
-    .benefit-wrapper { grid-template-columns: 1fr; gap: 50px; }
-    .cta-box h2 { font-size: 38px; }
-    .cta-box p { font-size: 17px; }
+.services-section {
+    position: relative;
+    padding: 100px 0;
+    background: #ffffff;
+    overflow: hidden;
 }
 
-/* ==============================
-   MOBILE: 768px and below
-   ============================== */
+.services-section::before {
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    left: -180px;
+    top: -180px;
+    background: rgba(204, 35, 38, 0.05);
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+}
+
+.services-section::after {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    right: -150px;
+    bottom: -150px;
+    background: rgba(108, 99, 255, 0.05);
+    border-radius: 50%;
+    filter: blur(90px);
+    pointer-events: none;
+}
+
+.services-section .container {
+    position: relative;
+    z-index: 2;
+    width: min(1200px, 92%);
+    margin: auto;
+}
+
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.services-section .section-heading {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 35px;
+}
+
+.services-section .section-heading .eyebrow {
+    display: inline-block;
+    color: #cc2326;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.8px;
+    margin-bottom: 10px;
+}
+
+.services-section .section-heading h2 {
+    margin: 0 0 15px;
+    color: #202124;
+    font-size: clamp(30px, 4vw, 44px);
+    line-height: 1.15;
+    font-weight: 800;
+}
+
+.services-section .section-heading p {
+    margin: 0 auto;
+    color: #666;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   FILTER BUTTONS
+========================================================= */
+
+.services-section .filters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 35px auto 45px;
+}
+
+.services-section .filter-btn {
+    border: 1px solid #e1e5eb;
+    background: #ffffff;
+    color: #475569;
+
+    padding: 11px 20px;
+    border-radius: 50px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+}
+
+.services-section .filter-btn:hover {
+    border-color: #cc2326;
+    color: #cc2326;
+    background: #fff7f7;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(204, 35, 38, 0.12);
+}
+
+.services-section .filter-btn.active {
+    background: linear-gradient(
+        90deg,
+        #f2292d,
+        #cc2326
+    );
+
+    border-color: #cc2326;
+    color: #ffffff;
+
+    box-shadow:
+        0 10px 25px rgba(204, 35, 38, 0.25);
+}
+
+
+/* =========================================================
+   SERVICE GRID
+========================================================= */
+
+.services-section .vehicle-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+}
+
+
+/* =========================================================
+   SERVICE CARD
+========================================================= */
+
+.services-section .vehicle-card {
+    position: relative;
+
+    background: #ffffff;
+
+    border: 1px solid #e5eaf0;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 8px 25px rgba(15, 23, 42, 0.07);
+
+    display: flex;
+    flex-direction: column;
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+.services-section .vehicle-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #f2292d,
+            #cc2326,
+            #6c63ff
+        );
+
+    transform: scaleX(0);
+
+    transform-origin: left;
+
+    transition: transform 0.4s ease;
+
+    z-index: 5;
+}
+
+.services-section .vehicle-card:hover {
+    transform: translateY(-8px);
+
+    border-color:
+        rgba(204, 35, 38, 0.25);
+
+    box-shadow:
+        0 20px 45px rgba(15, 23, 42, 0.13),
+        0 0 25px rgba(204, 35, 38, 0.05);
+}
+
+.services-section .vehicle-card:hover::before {
+    transform: scaleX(1);
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.services-section .vehicle-image {
+    position: relative;
+
+    height: 230px;
+
+    overflow: hidden;
+
+    background: #eef2f7;
+}
+
+.services-section .vehicle-image::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.45),
+            transparent 45%
+        );
+
+    pointer-events: none;
+}
+
+.services-section .vehicle-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.5s ease,
+        filter 0.5s ease;
+}
+
+.services-section .vehicle-card:hover
+.vehicle-image img {
+    transform: scale(1.07);
+    filter: brightness(1.05);
+}
+
+
+/* =========================================================
+   IMAGE BADGES
+========================================================= */
+
+.services-section .vehicle-type,
+.services-section .vehicle-seats {
+    position: absolute;
+
+    z-index: 3;
+
+    background: rgba(12, 6, 52, 0.88);
+
+    color: #ffffff;
+
+    padding: 7px 11px;
+
+    border-radius: 7px;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    backdrop-filter: blur(8px);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+.services-section .vehicle-type {
+    left: 14px;
+    top: 14px;
+}
+
+.services-section .vehicle-seats {
+    right: 14px;
+    top: 14px;
+}
+
+.services-section .vehicle-seats i {
+    margin-right: 4px;
+    color: #ff4d51;
+}
+
+
+/* =========================================================
+   CARD BODY
+========================================================= */
+
+.services-section .vehicle-body {
+    padding: 23px;
+
+    display: flex;
+    flex-direction: column;
+
+    flex: 1;
+}
+
+.services-section .vehicle-body h3 {
+    color: #222;
+
+    font-size: 21px;
+
+    line-height: 1.3;
+
+    margin: 0 0 10px;
+
+    font-weight: 700;
+}
+
+.services-section .vehicle-description {
+    color: #666;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    margin: 0 0 18px;
+}
+
+
+/* =========================================================
+   SERVICE META
+========================================================= */
+
+.services-section .vehicle-meta {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 9px;
+
+    margin-bottom: 22px;
+}
+
+.services-section .vehicle-meta span {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    background: #f8fafc;
+
+    border: 1px solid #edf1f5;
+
+    padding: 9px 10px;
+
+    border-radius: 8px;
+
+    color: #475569;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    transition: all 0.25s ease;
+}
+
+.services-section .vehicle-meta span:hover {
+    background: #fff5f5;
+
+    border-color: rgba(204, 35, 38, 0.22);
+
+    color: #222;
+}
+
+.services-section .vehicle-meta i {
+    color: #cc2326;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   CARD BOTTOM
+========================================================= */
+
+.services-section .vehicle-bottom {
+    margin-top: auto;
+
+    padding-top: 18px;
+
+    border-top:
+        1px solid #edf1f5;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+.services-section .price {
+    display: flex;
+    flex-direction: column;
+}
+
+.services-section .price strong {
+    color: #222;
+    font-size: 16px;
+}
+
+.services-section .price small {
+    color: #9299a6;
+    font-size: 11px;
+    margin-top: 3px;
+}
+
+
+/* =========================================================
+   CARD BUTTONS
+========================================================= */
+
+.services-section .card-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.services-section .card-btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 40px;
+
+    padding: 0 14px;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    transition: all 0.3s ease;
+}
+
+
+/* =========================================================
+   VIEW DETAILS
+========================================================= */
+
+.services-section .book-card {
+    background:
+        linear-gradient(
+            90deg,
+            #0b4bc1,
+            #2563eb
+        );
+
+    color: #ffffff;
+
+    box-shadow:
+        0 8px 20px rgba(11, 75, 193, 0.20);
+}
+
+.services-section .book-card:hover {
+    background:
+        linear-gradient(
+            90deg,
+            #f2292d,
+            #cc2326
+        );
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 28px rgba(204, 35, 38, 0.30);
+}
+
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+.services-section .whatsapp-card {
+    width: 40px;
+
+    padding: 0;
+
+    background: #25d366;
+
+    color: #ffffff;
+
+    font-size: 17px;
+
+    box-shadow:
+        0 8px 18px rgba(37, 211, 102, 0.15);
+}
+
+.services-section .whatsapp-card:hover {
+    background: #1ebe5d;
+
+    transform:
+        translateY(-3px)
+        scale(1.05);
+
+    box-shadow:
+        0 12px 25px rgba(37, 211, 102, 0.30);
+}
+/* =========================================================
+   FINAL RESPONSIVE FIX
+   Put this at the VERY END of your CSS
+========================================================= */
+
+/* =========================
+   LARGE TABLET / LAPTOP
+========================= */
+
+@media (max-width: 1200px) {
+
+    .container,
+    .partners-container {
+        width: 92%;
+    }
+
+    nav ul {
+        gap: 20px;
+    }
+
+    .hero-content {
+        gap: 40px;
+    }
+
+    .content {
+        left: 7%;
+        max-width: 550px;
+    }
+
+    .content h1 {
+        font-size: 48px;
+    }
+
+    .benefit-wrapper {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+
+    .services-section .vehicle-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .services-section .vehicle-body {
+        padding: 20px;
+    }
+
+    .services-section .vehicle-bottom {
+        gap: 10px;
+    }
+
+    .services-section .card-actions {
+        gap: 6px;
+    }
+
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1024px) {
+
+    /* GLOBAL */
+
+    .container,
+    .partners-container {
+        width: 92%;
+    }
+
+    /* HEADER */
+
+    header {
+        padding: 18px 0;
+    }
+
+    nav ul {
+        gap: 16px;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+
+    .quote-btn {
+        padding: 11px 18px;
+        font-size: 14px;
+    }
+
+    /* HERO */
+
+    .hero-content {
+        gap: 30px;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .content {
+        left: 6%;
+        right: 6%;
+        max-width: 600px;
+    }
+
+    .content h1 {
+        font-size: 44px;
+    }
+
+    .content p {
+        font-size: 17px;
+    }
+
+    /* WHY CHOOSE */
+
+    .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 22px;
+    }
+
+    /* BENEFITS */
+
+    .benefit-wrapper {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .benefit-right {
+        text-align: center;
+    }
+
+    .benefit-right h2 {
+        font-size: 38px;
+    }
+
+    /* CTA */
+
+    .cta-box {
+        max-width: 900px;
+        padding: 55px 40px;
+    }
+
+    .cta-box h2 {
+        font-size: 38px;
+    }
+
+    /* SERVICES */
+
+    .services-section {
+        padding: 80px 0;
+    }
+
+    .services-section .vehicle-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+    }
+
+    .services-section .vehicle-image {
+        height: 230px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE NAVIGATION
+========================================================= */
 
 @media (max-width: 768px) {
 
-    html {
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
         overflow-x: hidden;
     }
 
-    /* --- HEADER & NAV --- */
-    header {
-        padding: 12px 0;
-    }
-
-    .navbar {
-        flex-wrap: wrap;
+    body {
         position: relative;
     }
 
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 10px 0;
+        background: #0c0634;
+    }
+
+    header.scrolled {
+        padding: 9px 0;
+    }
+
+    .navbar {
+        width: 100%;
+        min-height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo {
+        gap: 8px;
+        min-width: 0;
+    }
+
     .logo img {
-        width: 100px;
+        width: 85px;
+        height: auto;
+        object-fit: contain;
     }
 
     .logo h2 {
-        font-size: 18px;
+        font-size: 17px;
+        white-space: nowrap;
     }
+
+    /* =========================
+       HAMBURGER
+    ========================= */
 
     .hamburger {
         display: flex;
+        width: 42px;
+        height: 42px;
+        flex-shrink: 0;
+        cursor: pointer;
+        z-index: 300;
     }
+
+    /* =========================
+       MOBILE NAV
+    ========================= */
 
     nav {
         display: none;
-        width: 100%;
-        position: absolute;
-        top: 100%;
+        position: fixed;
+
+        top: 70px;
         left: 0;
+
+        width: 100%;
+        max-height: calc(100vh - 70px);
+
+        overflow-y: auto;
+        overflow-x: hidden;
+
         background: #0c0634;
-        border-top: 1px solid rgba(255,255,255,0.1);
-        padding: 15px 0;
-        z-index: 150;
+
+        border-top: 1px solid rgba(255,255,255,.08);
+
+        padding: 8px 0 20px;
+
+        box-shadow:
+            0 20px 40px rgba(0,0,0,.25);
+
+        z-index: 250;
     }
 
     nav.active {
@@ -1235,70 +2012,229 @@ animation:floatBackground 12s ease-in-out infinite;
     }
 
     nav ul {
+        width: 100%;
+        display: flex;
         flex-direction: column;
         gap: 0;
         padding: 0;
+        margin: 0;
+        list-style: none;
     }
 
     nav ul li {
         width: 100%;
+        margin: 0;
     }
 
-    nav ul li a {
+    nav ul li > a {
+        width: 100%;
+        min-height: 50px;
+
         display: flex;
         align-items: center;
+
         padding: 14px 20px;
-        font-size: 16px;
-        min-height: 44px;
+
+        color: #fff;
+
+        font-size: 15px;
+        line-height: 1.3;
+
+        text-decoration: none;
+    }
+
+    nav ul li > a:hover {
+        background: rgba(255,255,255,.05);
+    }
+
+    nav a::after {
+        display: none;
     }
 
     .quote-btn {
         display: none;
     }
 
-    .partners-track {
-        will-change: transform;
+    /* =========================
+       DROPDOWN
+    ========================= */
+
+    .dropdown {
+        width: 100%;
     }
 
-    /* --- HERO SLIDER --- */
+    .dropdown > a {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .dropdown-arrow {
+        margin-left: auto;
+        font-size: 11px;
+    }
+
+    .dropdown-menu {
+        position: static;
+
+        width: 100%;
+        min-width: 0;
+
+        display: none;
+
+        margin: 0;
+        padding: 0;
+
+        background: #100a3d;
+
+        border-radius: 0;
+
+        box-shadow: none;
+
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+
+        overflow: hidden;
+    }
+
+    .dropdown:hover > .dropdown-menu {
+        display: none;
+    }
+
+    .dropdown.active > .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-menu::before {
+        display: none;
+    }
+
+    .dropdown-menu li {
+        width: 100%;
+    }
+
+    .dropdown-menu li a {
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+
+        min-height: 46px;
+
+        padding: 12px 35px;
+
+        color: #d9d9e8 !important;
+
+        font-size: 14px;
+
+        background: rgba(255,255,255,.025);
+
+        border-bottom: 1px solid rgba(255,255,255,.04);
+    }
+
+    .dropdown-menu li a:hover {
+        padding-left: 40px;
+
+        color: #fff !important;
+
+        background: rgba(204,35,38,.15);
+    }
+
+    .dropdown.active .dropdown-arrow {
+        transform: rotate(180deg);
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+        min-height: 70svh;
+    }
+
     .hero-slider {
-        height: 70vh;
+        width: 100%;
+        height: 70svh;
+        min-height: 500px;
+    }
+
+    .slide {
+        width: 100%;
+        height: 100%;
     }
 
     .slide img {
-        height: 70vh;
+        width: 100%;
+        height: 70svh;
+        min-height: 500px;
+        object-fit: cover;
+        object-position: center;
     }
 
-    .hero {
-        min-height: 70vh;
+    .hero-slider::before {
+        width: 280px;
+        height: 280px;
+        left: -130px;
+        top: -80px;
+        filter: blur(60px);
+    }
+
+    .hero-slider::after {
+        width: 260px;
+        height: 260px;
+        right: -130px;
+        bottom: -120px;
+        filter: blur(60px);
     }
 
     .content {
-        left: 5%;
-        right: 5%;
+        position: absolute;
+
+        top: 50%;
+        left: 7%;
+        right: 7%;
+
+        width: auto;
         max-width: none;
+
+        transform: translateY(-50%);
     }
 
     .content h1 {
-        font-size: 28px;
-        margin-bottom: 15px;
+        font-size: clamp(28px, 7vw, 42px);
+        line-height: 1.15;
+
+        margin-bottom: 14px;
+
+        max-width: 650px;
     }
 
     .content p {
+        max-width: 600px;
+
         font-size: 15px;
-        margin-bottom: 20px;
-        line-height: 1.6;
+        line-height: 1.65;
+
+        margin-bottom: 22px;
     }
 
     .btn {
-        padding: 12px 24px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        min-height: 44px;
+
+        padding: 12px 22px;
+
         font-size: 14px;
     }
 
     .slider-btn {
-        width: 36px;
-        height: 36px;
-        font-size: 14px;
+        width: 38px;
+        height: 38px;
+
+        font-size: 13px;
     }
 
     .prev {
@@ -1309,65 +2245,175 @@ animation:floatBackground 12s ease-in-out infinite;
         right: 10px;
     }
 
-    /* --- PARTNERS SECTION --- */
+    .dots {
+        bottom: 15px;
+        gap: 8px;
+    }
+
+    .dot {
+        width: 9px;
+        height: 9px;
+    }
+
+    /* =========================
+       PARTNERS
+    ========================= */
+
+    .partners-section {
+        padding: 30px 0;
+    }
+
     .section-title {
         font-size: 22px;
+        margin-bottom: 15px;
+    }
+
+    .partners-track {
+        gap: 15px;
     }
 
     .partners-track img {
-        width: 80px;
+        width: 75px;
         height: 40px;
     }
 
-    /* --- SERVICES SECTION --- */
-    .services-section {
-        padding: 60px 0;
+    /* =========================
+       GENERAL SECTION HEADINGS
+    ========================= */
+
+    .section-heading {
+        width: 92%;
+        margin-bottom: 40px;
     }
 
     .section-heading h2 {
-        font-size: 28px;
+        font-size: 30px;
     }
 
     .section-heading p {
         font-size: 14px;
+        line-height: 1.7;
     }
 
-    .service-category {
-        margin-bottom: 40px;
+    /* =========================
+       SERVICES
+    ========================= */
+
+    .services-section {
+        padding: 65px 0;
     }
 
-    .service-category h3 {
-        font-size: 22px;
-        margin-bottom: 20px;
+    .services-section .container {
+        width: 92%;
     }
 
-    .services-grid1 {
+    .services-section .section-heading {
+        margin-bottom: 25px;
+    }
+
+    .services-section .section-heading h2 {
+        font-size: 30px;
+    }
+
+    .services-section .section-heading p {
+        font-size: 14px;
+    }
+
+    .services-section .filters {
+        width: 100%;
+
+        justify-content: flex-start;
+
+        flex-wrap: nowrap;
+
+        overflow-x: auto;
+
+        gap: 8px;
+
+        margin: 25px 0 30px;
+
+        padding: 5px 2px 12px;
+
+        scrollbar-width: none;
+
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .services-section .filters::-webkit-scrollbar {
+        display: none;
+    }
+
+    .services-section .filter-btn {
+        flex: 0 0 auto;
+
+        white-space: nowrap;
+
+        min-height: 42px;
+
+        padding: 10px 16px;
+
+        font-size: 13px;
+    }
+
+    .services-section .vehicle-grid {
         grid-template-columns: 1fr;
         gap: 20px;
     }
 
-    .services-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
+    .services-section .vehicle-card {
+        width: 100%;
+        min-width: 0;
     }
 
-    .service-card {
-        padding: 24px 20px;
+    .services-section .vehicle-image {
+        height: 220px;
     }
 
-    .service-card img {
-        width: 120px;
-        height: 80px;
+    .services-section .vehicle-body {
+        padding: 18px;
     }
 
-    /* --- WHY CHOOSE US --- */
+    .services-section .vehicle-body h3 {
+        font-size: 19px;
+    }
+
+    .services-section .vehicle-description {
+        font-size: 13px;
+    }
+
+    .services-section .vehicle-meta {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 7px;
+    }
+
+    .services-section .vehicle-meta span {
+        min-width: 0;
+        padding: 8px;
+
+        font-size: 11px;
+    }
+
+    .services-section .vehicle-bottom {
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .services-section .card-actions {
+        margin-left: auto;
+    }
+
+    /* =========================
+       WHY CHOOSE
+    ========================= */
+
     .why-choose-section {
-        padding: 60px 0;
+        padding: 65px 0;
     }
 
     .why-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 18px;
     }
 
     .why-card {
@@ -1377,26 +2423,42 @@ animation:floatBackground 12s ease-in-out infinite;
     .why-card i {
         width: 65px;
         height: 65px;
-        font-size: 28px;
+        font-size: 27px;
     }
 
     .why-card h3 {
         font-size: 20px;
     }
 
-    /* --- BENEFIT / INDUSTRIES SECTION --- */
+    .why-card p {
+        font-size: 14px;
+    }
+
+    /* =========================
+       BENEFITS
+    ========================= */
+
     .benefit-section {
-        padding: 60px 0;
+        padding: 65px 0;
     }
 
     .benefit-wrapper {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 35px;
+    }
+
+    .benefit-left {
+        gap: 15px;
     }
 
     .benefit-item {
-        padding: 20px;
-        gap: 16px;
+        width: 100%;
+
+        padding: 18px;
+
+        gap: 15px;
+
+        border-radius: 15px;
     }
 
     .benefit-icon {
@@ -1405,7 +2467,11 @@ animation:floatBackground 12s ease-in-out infinite;
     }
 
     .benefit-icon i {
-        font-size: 22px;
+        font-size: 21px;
+    }
+
+    .benefit-content {
+        min-width: 0;
     }
 
     .benefit-content h3 {
@@ -1413,86 +2479,324 @@ animation:floatBackground 12s ease-in-out infinite;
     }
 
     .benefit-content p {
-        font-size: 14px;
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .benefit-right {
+        text-align: center;
+    }
+
+    .benefit-right span {
+        font-size: 12px;
     }
 
     .benefit-right h2 {
-        font-size: 28px;
+        font-size: 29px;
     }
 
     .benefit-right p {
         font-size: 14px;
+        line-height: 1.7;
     }
 
-    /* --- CTA SECTION --- */
+    /* =========================
+       CTA
+    ========================= */
+
     .cta-section {
         padding: 60px 15px;
     }
 
     .cta-box {
+        width: 100%;
+
         padding: 40px 20px;
+
         border-radius: 20px;
     }
 
     .cta-box h2 {
-        font-size: 26px;
+        font-size: 28px;
     }
 
     .cta-box p {
         font-size: 14px;
+        line-height: 1.7;
         margin-bottom: 25px;
     }
 
     .cta-buttons {
+        width: 100%;
+
+        display: flex;
         flex-direction: column;
-        align-items: center;
+
+        align-items: stretch;
+
         gap: 12px;
     }
 
-    .cta-buttons .secondary-btn {
+    .cta-buttons a {
         width: 100%;
-        max-width: 280px;
-        padding: 14px 24px;
-        font-size: 15px;
-        justify-content: center;
+        min-height: 48px;
     }
 
-    /* Premium mobile animations */
-    .why-card, .service-card, .benefit-item {
-        animation: slideUp .6s ease both;
+    /* =========================
+       FLOATING BUTTONS
+    ========================= */
+
+    .floating-buttons {
+        right: 14px;
+        bottom: 14px;
+        gap: 10px;
     }
-    .why-card:nth-child(1), .service-card:nth-child(1), .benefit-item:nth-child(1) { animation-delay: .1s; }
-    .why-card:nth-child(2), .service-card:nth-child(2), .benefit-item:nth-child(2) { animation-delay: .2s; }
-    .why-card:nth-child(3), .service-card:nth-child(3), .benefit-item:nth-child(3) { animation-delay: .3s; }
-    .why-card:nth-child(4), .service-card:nth-child(4) { animation-delay: .4s; }
-    .why-card:nth-child(5), .service-card:nth-child(5) { animation-delay: .5s; }
 
-    /* Stop infinite floating animations on mobile */
-    .cta-box, .why-card, .benefit-item { animation-name: none; }
-
-    /* Tap highlight removal */
-    a, button { -webkit-tap-highlight-color: transparent; }
-
-    /* Disable hover effects on touch */
-    @media (hover: none) and (pointer: coarse) {
-        .why-card:hover, .service-card:hover, .benefit-item:hover {
-            transform: none;
-        }
+    .floating-buttons a {
+        width: 50px;
+        height: 50px;
+        font-size: 21px;
     }
+
 }
 
-/* ==============================
-   MOBILE: 480px and below
-   ============================= */
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
 
 @media (max-width: 480px) {
 
+    .container,
+    .partners-container {
+        width: 92%;
+    }
+
+    /* HEADER */
+
+    header {
+        padding: 8px 0;
+    }
+
     .logo img {
-        width: 100px;
+        width: 78px;
     }
 
     .logo h2 {
+        font-size: 15px;
+    }
+
+    .hamburger {
+        width: 40px;
+        height: 40px;
+    }
+
+    nav {
+        top: 60px;
+        max-height: calc(100vh - 60px);
+    }
+
+    /* HERO */
+
+    .hero-slider,
+    .hero {
+        height: 68svh;
+        min-height: 460px;
+    }
+
+    .slide img {
+        height: 68svh;
+        min-height: 460px;
+    }
+
+    .content {
+        left: 8%;
+        right: 8%;
+    }
+
+    .content h1 {
+        font-size: 25px;
+        line-height: 1.2;
+    }
+
+    .content p {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .content .btn {
+        padding: 11px 18px;
+        font-size: 13px;
+    }
+
+    .slider-btn {
+        width: 34px;
+        height: 34px;
+    }
+
+    /* PARTNERS */
+
+    .section-title {
+        font-size: 20px;
+    }
+
+    .partners-track img {
+        width: 65px;
+        height: 35px;
+    }
+
+    /* HEADINGS */
+
+    .section-heading h2,
+    .services-section .section-heading h2 {
+        font-size: 25px;
+    }
+
+    /* SERVICES */
+
+    .services-section {
+        padding: 55px 0;
+    }
+
+    .services-section .vehicle-image {
+        height: 200px;
+    }
+
+    .services-section .vehicle-body {
+        padding: 16px;
+    }
+
+    .services-section .vehicle-body h3 {
+        font-size: 18px;
+    }
+
+    .services-section .vehicle-description {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+    .services-section .vehicle-meta {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .services-section .vehicle-meta span {
+        font-size: 10px;
+        padding: 7px;
+    }
+
+    .services-section .vehicle-bottom {
+        align-items: flex-end;
+    }
+
+    .services-section .price strong {
+        font-size: 14px;
+    }
+
+    .services-section .price small {
+        max-width: 100px;
+        font-size: 10px;
+    }
+
+    .services-section .card-btn {
+        min-height: 38px;
+        font-size: 11px;
+    }
+
+    .services-section .book-card {
+        padding: 0 11px;
+    }
+
+    .services-section .whatsapp-card {
+        width: 38px;
+    }
+
+    /* WHY */
+
+    .why-card {
+        padding: 26px 18px;
+    }
+
+    .why-card i {
+        width: 60px;
+        height: 60px;
+        font-size: 25px;
+    }
+
+    .why-card h3 {
+        font-size: 19px;
+    }
+
+    /* BENEFITS */
+
+    .benefit-item {
+        align-items: flex-start;
+        padding: 16px;
+    }
+
+    .benefit-icon {
+        width: 48px;
+        height: 48px;
+        flex-shrink: 0;
+    }
+
+    .benefit-icon i {
+        font-size: 18px;
+    }
+
+    .benefit-content h3 {
         font-size: 16px;
+    }
+
+    .benefit-content p {
+        font-size: 12px;
+    }
+
+    .benefit-right h2 {
+        font-size: 24px;
+    }
+
+    /* CTA */
+
+    .cta-box {
+        padding: 35px 17px;
+    }
+
+    .cta-box h2 {
+        font-size: 23px;
+    }
+
+    .cta-box p {
+        font-size: 13px;
+    }
+
+    /* FLOATING BUTTONS */
+
+    .floating-buttons {
+        right: 10px;
+        bottom: 10px;
+    }
+
+    .floating-buttons a {
+        width: 46px;
+        height: 46px;
+        font-size: 19px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL DEVICES
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .logo img {
+        width: 70px;
+    }
+
+    .logo h2 {
+        font-size: 14px;
     }
 
     .content h1 {
@@ -1500,30 +2804,77 @@ animation:floatBackground 12s ease-in-out infinite;
     }
 
     .content p {
-        font-size: 13px;
+        font-size: 12px;
     }
 
-    .section-heading h2 {
-        font-size: 24px;
+    .services-section .vehicle-meta span {
+        font-size: 9px;
+        gap: 4px;
     }
 
-    .benefit-right h2 {
-        font-size: 24px;
+    .benefit-item {
+        gap: 10px;
     }
 
-    .cta-box h2 {
-        font-size: 22px;
+    .benefit-content h3 {
+        font-size: 15px;
     }
 
-    .service-card img {
-        width: 100px;
-        height: 65px;
+    .benefit-content p {
+        font-size: 11px;
     }
+
 }
 
-@media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
+
+/* =========================================================
+   TOUCH DEVICES
+========================================================= */
+
+@media (hover: none) and (pointer: coarse) {
+
+    .why-card:hover,
+    .service-card:hover,
+    .benefit-item:hover,
+    .vehicle-card:hover {
+        transform: none;
     }
+
+    .why-card:hover::before,
+    .why-card:hover::after,
+    .vehicle-card:hover::before {
+        transform: none;
+    }
+
+    .vehicle-card:hover .vehicle-image img {
+        transform: none;
+        filter: none;
+    }
+
+    .benefit-item:hover::before {
+        left: -80%;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
 }

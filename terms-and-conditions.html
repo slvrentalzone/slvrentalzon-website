@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Terms & Conditions | SLV Rental Zone</title>
+
+    <meta name="description"
+        content="Terms and Conditions for SLV Rental Zone.">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fa;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 18px 0;
+            background-color: #0c0634;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+
+        /* =========================
+           LOGO
+        ========================= */
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 100px;
+            display: block;
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav > ul {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            list-style: none;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav a {
+            color: #fff;
+            font-size: 15px;
+            transition: 0.3s ease;
+        }
+
+        nav > ul > li > a:hover,
+        nav > ul > li > a.active {
+            color: #cc2326;
+        }
+
+
+        /* =========================
+           DROPDOWN
+        ========================= */
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown > a {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .dropdown-arrow {
+            font-size: 11px;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 15px);
+            left: 0;
+
+            width: 220px;
+
+            background: #fff;
+            padding: 8px 0;
+            margin: 0;
+
+            list-style: none;
+
+            border-radius: 6px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+
+            transition: 0.25s ease;
+
+            z-index: 2000;
+        }
+
+        /* Small invisible bridge so dropdown doesn't disappear */
+        .dropdown-menu::before {
+            content: "";
+            position: absolute;
+            top: -15px;
+            left: 0;
+            width: 100%;
+            height: 15px;
+        }
+
+        .dropdown-menu li {
+            width: 100%;
+        }
+
+        .dropdown-menu li a {
+            display: block;
+            width: 100%;
+
+            padding: 11px 18px;
+
+            color: #333;
+            font-size: 14px;
+
+            white-space: nowrap;
+
+            transition: 0.2s ease;
+        }
+
+        .dropdown-menu li a:hover {
+            background: #f2f2f2;
+            color: #cc2326;
+        }
+
+        /* Show dropdown on hover */
+        .dropdown:hover > .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+
+        /* =========================
+           GET QUOTE BUTTON
+        ========================= */
+
+        .quote-btn {
+            display: inline-block;
+
+            background: linear-gradient(90deg, #f2292d, #cc2326);
+
+            color: #fff;
+
+            padding: 12px 24px;
+
+            border-radius: 10px;
+
+            font-weight: 600;
+
+            transition: 0.3s ease;
+        }
+
+        .quote-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(204, 35, 38, 0.3);
+        }
+
+
+        /* =========================
+           HAMBURGER
+        ========================= */
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            display: block;
+
+            width: 26px;
+            height: 3px;
+
+            margin: 5px 0;
+
+            background: #fff;
+
+            border-radius: 3px;
+        }
+
+
+        /* =========================
+           PAGE CONTENT
+        ========================= */
+
+        .page-container {
+            max-width: 1100px;
+
+            margin: 0 auto;
+
+            padding: 150px 20px 50px;
+        }
+
+        .content {
+            background: #fff;
+
+            padding: 45px;
+
+            border-radius: 12px;
+
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .content h1 {
+            color: #0b1f3a;
+
+            font-size: 36px;
+
+            margin-bottom: 10px;
+        }
+
+        .updated {
+            color: #777;
+
+            font-size: 14px;
+
+            margin-bottom: 35px;
+        }
+
+        .content h2 {
+            color: #0b1f3a;
+
+            font-size: 22px;
+
+            margin-top: 32px;
+            margin-bottom: 12px;
+        }
+
+        .content h3 {
+            color: #222;
+
+            font-size: 18px;
+
+            margin-top: 20px;
+            margin-bottom: 8px;
+        }
+
+        .content p {
+            margin-bottom: 14px;
+        }
+
+        .content ul {
+            margin: 10px 0 18px 25px;
+        }
+
+        .content li {
+            margin-bottom: 7px;
+        }
+
+        .content a {
+            color: #0b63ce;
+        }
+
+        .content a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .hamburger {
+                display: block;
+                order: 2;
+            }
+
+            nav {
+                position: absolute;
+
+                top: 100%;
+                left: 0;
+
+                width: 100%;
+
+                background: #0c0634;
+
+                display: none;
+
+                padding: 20px 0;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav > ul {
+                flex-direction: column;
+                align-items: stretch;
+
+                gap: 0;
+
+                width: 90%;
+                margin: auto;
+            }
+
+            nav > ul > li {
+                width: 100%;
+            }
+
+            nav > ul > li > a {
+                display: block;
+
+                padding: 13px 10px;
+            }
+
+
+            /* Mobile dropdown */
+
+            .dropdown-menu {
+                position: static;
+
+                width: 100%;
+
+                display: none;
+
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+
+                background: #171044;
+
+                box-shadow: none;
+
+                border-radius: 0;
+
+                padding: 0;
+            }
+
+            .dropdown:hover > .dropdown-menu {
+                display: none;
+            }
+
+            .dropdown.active > .dropdown-menu {
+                display: block;
+            }
+
+            .dropdown-menu li a {
+                color: #fff;
+
+                padding: 11px 25px;
+
+                font-size: 14px;
+            }
+
+            .dropdown-menu li a:hover {
+                background: #21195c;
+
+                color: #cc2326;
+            }
+
+            .dropdown-menu::before {
+                display: none;
+            }
+
+            .quote-btn {
+                order: 3;
+
+                padding: 10px 16px;
+
+                font-size: 14px;
+            }
+
+            .logo {
+                order: 1;
+            }
+
+            .page-container {
+                padding-top: 130px;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            header {
+                padding: 14px 0;
+            }
+
+            .logo img {
+                width: 80px;
+            }
+
+            .quote-btn {
+                display: none;
+            }
+
+            .content {
+                padding: 25px 20px;
+            }
+
+            .content h1 {
+                font-size: 28px;
+            }
+
+            .content h2 {
+                font-size: 20px;
+            }
+
+            .page-container {
+                padding: 110px 15px 40px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         HEADER
+    ========================= -->
+
+    <header>
+    <div class="container navbar">
+
+        <div class="logo">
+            <a href="index.html">
+                <img src="assets/images/logo.jpeg" alt="Logo">
+            </a>
+        </div>
+
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav id="nav-menu">
+            <ul>
+
+                <li>
+                    <a class="active" href="#hero">Home</a>
+                </li>
+
+                <!-- Rental Services -->
+                <li class="dropdown">
+                    <a href="#rental-services">
+                        Rental Services ▾
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="pages/laptop_rental.html">Laptop Rental</a></li>
+                        <li><a href="pages/desktop_rental.html">Desktop Rental</a></li>
+                        <li><a href="pages/printer_rental.html">Printer Rental</a></li>
+                        <li><a href="pages/server_rental.html">Server Rental</a></li>
+                        <li><a href="pages/firewall_rental.html">Firewall Rental</a></li>
+                    </ul>
+                </li>
+
+                <!-- Refurbished Products -->
+                <li class="dropdown">
+                    <a href="#refurbished-products">
+                        Refurbished Products ▾
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="pages/refurbished_laptop.html">Laptops</a></li>
+                        <li><a href="pages/refurbished_computer.html">Desktops</a></li>
+                        <li><a href="pages/refurbished_server.html">Servers</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="amc.html">AMC</a>
+                </li>
+
+                <li>
+                    <a href="about.html">About Us</a>
+                </li>
+
+                <li>
+                    <a href="contact.html">Contact</a>
+                </li>
+
+            </ul>
+        </nav>
+
+        <a href="form.html" class="quote-btn">Get Quote</a>
+
+    </div>
+</header>
+
+
+
+    <!-- =========================
+         TERMS & CONDITIONS
+    ========================= -->
+
+    <main class="page-container">
+
+        <article class="content">
+
+            <h1>Terms &amp; Conditions</h1>
+
+            <div class="updated">
+                Last Updated: September 24, 2026
+            </div>
+
+
+            <p>
+                Welcome to <strong>SLV Rental Zone</strong>.
+                These Terms &amp; Conditions govern your use of our website
+                and our rental, refurbished equipment, AMC, technical support
+                and related services.
+            </p>
+
+            <p>
+                By accessing our website, requesting a quotation, placing an
+                order, renting equipment or purchasing products from us,
+                you agree to these Terms &amp; Conditions.
+            </p>
+
+
+            <h2>1. Our Services</h2>
+
+            <p>
+                SLV Rental Zone provides IT equipment and related services,
+                including:
+            </p>
+
+            <ul>
+                <li>Laptop rentals</li>
+                <li>Desktop and computer rentals</li>
+                <li>Server rentals</li>
+                <li>Firewall and networking equipment rentals</li>
+                <li>Printer rentals</li>
+                <li>Refurbished laptops, computers and servers</li>
+                <li>Annual Maintenance Contract (AMC)</li>
+                <li>Technical support and IT services</li>
+            </ul>
+
+
+            <h2>2. Quotations and Orders</h2>
+
+            <p>
+                All quotations are subject to equipment availability and
+                confirmation by SLV Rental Zone.
+            </p>
+
+            <p>
+                Prices may vary depending on equipment configuration,
+                rental period, quantity, delivery location, taxes,
+                installation and support requirements.
+            </p>
+
+            <p>
+                An enquiry or quotation does not constitute a confirmed
+                order until it has been accepted and confirmed by
+                SLV Rental Zone.
+            </p>
+
+
+            <h2>3. Rental Period</h2>
+
+            <p>
+                The rental period will be specified in the quotation,
+                invoice, rental agreement or written confirmation.
+            </p>
+
+            <p>
+                Rented equipment must be returned on or before the agreed
+                return date unless an extension has been approved by
+                SLV Rental Zone.
+            </p>
+
+
+            <h2>4. Customer Responsibilities</h2>
+
+            <p>
+                The customer agrees to:
+            </p>
+
+            <ul>
+                <li>Use rented equipment responsibly and lawfully.</li>
+                <li>Keep equipment in reasonable condition.</li>
+                <li>Protect equipment against theft, loss and damage.</li>
+                <li>Not sell, transfer, sub-rent or pledge rented equipment.</li>
+                <li>Not remove serial numbers or identification labels.</li>
+                <li>Immediately report loss, theft or damage.</li>
+                <li>Return all equipment and accessories supplied with the rental.</li>
+            </ul>
+
+
+            <h2>5. Equipment Availability</h2>
+
+            <p>
+                All equipment is subject to availability. Product images
+                and specifications displayed on the website are for general
+                information and may vary from the equipment ultimately
+                supplied.
+            </p>
+
+            <p>
+                Where the requested equipment is unavailable,
+                SLV Rental Zone may offer an equivalent or alternative
+                configuration, subject to customer approval where applicable.
+            </p>
+
+
+            <h2>6. Delivery and Installation</h2>
+
+            <p>
+                Delivery, installation, transportation and pickup terms
+                may vary depending on the customer's location and order
+                requirements.
+            </p>
+
+            <p>
+                Applicable charges and estimated delivery timelines will
+                be communicated to the customer where applicable.
+            </p>
+
+
+            <h2>7. Security Deposit</h2>
+
+            <p>
+                SLV Rental Zone may require a refundable security deposit
+                before releasing rental equipment.
+            </p>
+
+            <p>
+                The applicable deposit and refund conditions will be
+                specified in the quotation, invoice or rental agreement.
+            </p>
+
+            <p>
+                Outstanding rental charges, damage charges, loss charges
+                or other amounts payable may be adjusted against the
+                security deposit where applicable.
+            </p>
+
+
+            <h2>8. Payment</h2>
+
+            <p>
+                Customers must make payments according to the payment
+                terms specified in the quotation, invoice or rental
+                agreement.
+            </p>
+
+            <p>
+                Applicable taxes, including GST where applicable,
+                will be charged as required by law.
+            </p>
+
+
+            <h2>9. Damage, Loss or Theft</h2>
+
+            <p>
+                Customers are responsible for rented equipment while it
+                is in their possession or control, subject to the applicable
+                rental agreement.
+            </p>
+
+            <p>
+                In the event of loss, theft or significant damage,
+                the customer must notify SLV Rental Zone immediately.
+                A police report or other documentation may be requested
+                where appropriate.
+            </p>
+
+
+            <h2>10. Technical Support and Maintenance</h2>
+
+            <p>
+                Where technical support or AMC is included, the scope
+                of support will be determined by the relevant agreement.
+            </p>
+
+            <p>
+                Support may not cover damage resulting from:
+            </p>
+
+            <ul>
+                <li>Accidents or physical damage</li>
+                <li>Liquid or moisture damage</li>
+                <li>Electrical or power-related issues</li>
+                <li>Unauthorized repairs or modifications</li>
+                <li>Negligence or misuse</li>
+                <li>Malware or unauthorized software</li>
+            </ul>
+
+
+            <h2>11. Refurbished Products</h2>
+
+            <p>
+                Refurbished products may have been previously used and
+                subsequently tested, repaired or restored.
+            </p>
+
+            <p>
+                Product condition, configuration and warranty period
+                will be specified in the relevant product listing,
+                quotation, invoice or warranty documentation.
+            </p>
+
+
+            <h2>12. Software and Data</h2>
+
+            <p>
+                Customers are responsible for maintaining backups of
+                their data. Customers should remove personal and business
+                data from rented equipment before returning it.
+            </p>
+
+            <p>
+                Customers are responsible for ensuring that software
+                installed or used on equipment is properly licensed.
+            </p>
+
+
+            <h2>13. Website Information</h2>
+
+            <p>
+                We make reasonable efforts to keep website information
+                accurate and current. However, product descriptions,
+                specifications, pricing and availability may change
+                without prior notice.
+            </p>
+
+
+            <h2>14. Prohibited Use</h2>
+
+            <p>
+                You must not use our website or services:
+            </p>
+
+            <ul>
+                <li>For unlawful activities.</li>
+                <li>To infringe intellectual property rights.</li>
+                <li>To attempt unauthorized access to our systems.</li>
+                <li>To introduce malicious software or code.</li>
+                <li>To interfere with the operation or security of our website.</li>
+                <li>To provide false or misleading information.</li>
+            </ul>
+
+
+            <h2>15. Intellectual Property</h2>
+
+            <p>
+                Website content, logos, graphics, text, images and design
+                are owned by or licensed to SLV Rental Zone unless
+                otherwise stated.
+            </p>
+
+            <p>
+                Such content may not be copied, reproduced, modified or
+                commercially exploited without prior written permission.
+            </p>
+
+
+            <h2>16. Limitation of Liability</h2>
+
+            <p>
+                To the extent permitted by applicable law, SLV Rental Zone
+                shall not be liable for indirect, incidental, special or
+                consequential losses arising from the use of our website
+                or services.
+            </p>
+
+            <p>
+                Nothing in these Terms excludes or limits liability that
+                cannot legally be excluded under applicable law.
+            </p>
+
+
+            <h2>17. Force Majeure</h2>
+
+            <p>
+                SLV Rental Zone shall not be responsible for delays caused
+                by circumstances beyond our reasonable control, including
+                natural disasters, government restrictions, transportation
+                disruptions, strikes, telecommunications failures or
+                similar events.
+            </p>
+
+
+            <h2>18. Cancellation and Termination</h2>
+
+            <p>
+                Cancellation terms may vary according to the quotation,
+                order or rental agreement.
+            </p>
+
+            <p>
+                SLV Rental Zone may suspend or terminate services where
+                a customer materially breaches the applicable agreement
+                or fails to make required payments.
+            </p>
+
+
+            <h2>19. Privacy</h2>
+
+            <p>
+                Personal information collected through our website and
+                services is handled according to our
+                <a href="privacy-policy.html">Privacy Policy</a>.
+            </p>
+
+
+            <h2>20. Governing Law</h2>
+
+            <p>
+                These Terms &amp; Conditions shall be governed by the
+                laws applicable in India.
+            </p>
+
+            <p>
+                Subject to applicable law, disputes shall be subject to
+                the jurisdiction of the competent courts having jurisdiction
+                over the location of SLV Rental Zone's principal place
+                of business.
+            </p>
+
+
+            <h2>21. Changes to These Terms</h2>
+
+            <p>
+                We may update these Terms &amp; Conditions from time to
+                time. The latest version will be published on this page
+                with the revised update date.
+            </p>
+
+
+            <h2>22. Contact Us</h2>
+
+            <p>
+                <strong>SLV Rental Zone</strong><br>
+
+                Website:
+                <a href="https://slvrentalzone.in/">
+                    slvrentalzone.in
+                </a>
+                <br>
+
+                Email:
+                <a href="mailto:YOUR-EMAIL@example.com">
+                    YOUR-EMAIL@example.com
+                </a>
+                <br>
+
+                Phone: YOUR PHONE NUMBER
+                <br>
+
+                Address: YOUR BUSINESS ADDRESS
+            </p>
+
+        </article>
+
+    </main>
+
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+
+    <!-- Footer JS -->
+    <script src="assets/js/footer.js"></script>
+
+
+    <!-- Navbar JS -->
+    <script>
+        const hamburger = document.getElementById("hamburger");
+        const navMenu = document.getElementById("nav-menu");
+
+        /* Mobile hamburger */
+        hamburger.addEventListener("click", function () {
+            navMenu.classList.toggle("active");
+            hamburger.classList.toggle("active");
+        });
+
+
+        /* Mobile dropdown */
+        document.querySelectorAll(".dropdown > a").forEach(function (dropdownLink) {
+
+            dropdownLink.addEventListener("click", function (event) {
+
+                if (window.innerWidth <= 900) {
+
+                    event.preventDefault();
+
+                    const dropdown = this.parentElement;
+
+                    dropdown.classList.toggle("active");
+
+                }
+
+            });
+
+        });
+    </script>
+
+</body>
+</html>

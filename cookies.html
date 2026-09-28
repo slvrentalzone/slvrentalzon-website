@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cookie Policy | SLV Rental Zone</title>
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f8fa;
+            color: #222;
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 14px 0;
+            background: #0c0634;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 25px;
+        }
+
+
+        /* =========================
+           LOGO
+        ========================= */
+
+        .logo {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .logo a {
+            display: block;
+        }
+
+        .logo img {
+            width: 100px;
+            height: auto;
+            display: block;
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav > ul {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            list-style: none;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav a {
+            color: #fff;
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+
+        nav > ul > li > a:hover,
+        nav > ul > li > a.active {
+            color: #cc2326;
+        }
+
+
+        /* =========================
+           DROPDOWN
+        ========================= */
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown > a {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 15px);
+            left: 0;
+
+            width: 220px;
+
+            background: #fff;
+            padding: 8px 0;
+            margin: 0;
+
+            list-style: none;
+
+            border-radius: 6px;
+
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+
+            transition: all 0.25s ease;
+
+            z-index: 2000;
+        }
+
+        .dropdown-menu::before {
+            content: "";
+            position: absolute;
+            top: -15px;
+            left: 0;
+            width: 100%;
+            height: 15px;
+        }
+
+        .dropdown-menu li {
+            width: 100%;
+        }
+
+        .dropdown-menu li a {
+            display: block;
+            width: 100%;
+            padding: 11px 18px;
+            color: #333;
+            font-size: 14px;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+
+        .dropdown-menu li a:hover {
+            background: #f2f2f2;
+            color: #cc2326;
+        }
+
+        .dropdown:hover > .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+
+        /* =========================
+           GET QUOTE BUTTON
+        ========================= */
+
+        .quote-btn {
+            display: inline-block;
+            background: linear-gradient(90deg, #f2292d, #cc2326);
+            color: #fff;
+            padding: 11px 22px;
+            border-radius: 10px;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+        }
+
+        .quote-btn:hover {
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(204, 35, 38, 0.3);
+        }
+
+
+        /* =========================
+           HAMBURGER
+        ========================= */
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            border: 0;
+            background: transparent;
+            padding: 5px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 26px;
+            height: 3px;
+            margin: 5px 0;
+            background: #fff;
+            border-radius: 3px;
+        }
+
+
+        /* =========================
+           COOKIE PAGE
+        ========================= */
+
+        .cookie-page {
+            padding: 150px 0 70px;
+        }
+
+        .cookie-card {
+            background: #fff;
+            padding: 50px;
+            border-radius: 14px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
+        }
+
+        .page-label {
+            display: inline-block;
+            color: #cc2326;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .cookie-card h1 {
+            font-size: 42px;
+            line-height: 1.2;
+            margin-bottom: 8px;
+            color: #111827;
+        }
+
+        .updated {
+            color: #777;
+            margin-bottom: 40px;
+            font-size: 14px;
+        }
+
+        .cookie-card section {
+            margin-bottom: 35px;
+        }
+
+        .cookie-card h2 {
+            font-size: 24px;
+            line-height: 1.3;
+            margin-bottom: 12px;
+            color: #111827;
+        }
+
+        .cookie-card h3 {
+            font-size: 18px;
+            margin-bottom: 7px;
+            color: #111827;
+        }
+
+        .cookie-card p {
+            color: #555;
+        }
+
+
+        /* =========================
+           COOKIE TYPES
+        ========================= */
+
+        .cookie-type {
+            background: #f7f8fa;
+            border-left: 4px solid #cc2326;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+
+        /* =========================
+           BOTTOM BUTTONS
+        ========================= */
+
+        .cookie-footer-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+        }
+
+        .manage-btn {
+            border: none;
+            padding: 13px 20px;
+            border-radius: 7px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+
+            background: #111827;
+            color: #fff;
+
+            transition: 0.3s ease;
+        }
+
+        .manage-btn:hover {
+            background: #cc2326;
+        }
+
+
+        /* =========================
+           COOKIE MODAL
+        ========================= */
+
+        .cookie-modal {
+            display: none;
+
+            position: fixed;
+            inset: 0;
+
+            background: rgba(0, 0, 0, 0.65);
+
+            z-index: 9999;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+        }
+
+        .cookie-modal.active {
+            display: flex;
+        }
+
+        .cookie-modal-content {
+            position: relative;
+
+            width: 100%;
+            max-width: 520px;
+
+            max-height: 90vh;
+            overflow-y: auto;
+
+            background: #fff;
+
+            border-radius: 14px;
+
+            padding: 35px;
+
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .cookie-modal-content h2 {
+            font-size: 25px;
+            margin-bottom: 8px;
+            color: #111827;
+        }
+
+        .cookie-modal-content > p {
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+
+        /* =========================
+           CLOSE BUTTON
+        ========================= */
+
+        .close-btn {
+            position: absolute;
+            right: 18px;
+            top: 12px;
+
+            width: 35px;
+            height: 35px;
+
+            border: none;
+            background: transparent;
+
+            font-size: 30px;
+            line-height: 30px;
+
+            cursor: pointer;
+            color: #666;
+        }
+
+        .close-btn:hover {
+            color: #cc2326;
+        }
+
+
+        /* =========================
+           COOKIE SETTINGS
+        ========================= */
+
+        .cookie-setting {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 20px;
+
+            padding: 18px 0;
+
+            border-bottom: 1px solid #eee;
+        }
+
+        .cookie-setting h3 {
+            margin-bottom: 3px;
+        }
+
+        .cookie-setting p {
+            font-size: 13px;
+            color: #777;
+        }
+
+
+        /* =========================
+           TOGGLE
+        ========================= */
+
+        .switch {
+            position: relative;
+
+            width: 48px;
+            height: 26px;
+
+            flex-shrink: 0;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+
+            inset: 0;
+
+            background: #ccc;
+
+            border-radius: 30px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .slider:before {
+            content: "";
+
+            position: absolute;
+
+            width: 20px;
+            height: 20px;
+
+            left: 3px;
+            top: 3px;
+
+            background: #fff;
+
+            border-radius: 50%;
+
+            transition: 0.3s;
+        }
+
+        .switch input:checked + .slider {
+            background: #cc2326;
+        }
+
+        .switch input:checked + .slider:before {
+            transform: translateX(22px);
+        }
+
+
+        /* =========================
+           SAVE BUTTON
+        ========================= */
+
+        .save-btn {
+            width: 100%;
+
+            margin-top: 25px;
+
+            padding: 14px;
+
+            border: none;
+            border-radius: 7px;
+
+            background: linear-gradient(
+                90deg,
+                #f2292d,
+                #cc2326
+            );
+
+            color: #fff;
+
+            font-size: 15px;
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: 0.3s ease;
+        }
+
+        .save-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 5px 15px rgba(204, 35, 38, 0.25);
+        }
+
+
+        /* =========================
+           SUCCESS MESSAGE
+        ========================= */
+
+        .cookie-message {
+            display: none;
+
+            margin-top: 15px;
+
+            padding: 10px 12px;
+
+            border-radius: 6px;
+
+            background: #eaf7ee;
+            color: #217a3b;
+
+            font-size: 13px;
+        }
+
+        .cookie-message.show {
+            display: block;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 1000px) {
+
+            .navbar {
+                position: relative;
+            }
+
+            .hamburger {
+                display: block;
+                margin-left: auto;
+            }
+
+            nav {
+                display: none;
+
+                position: absolute;
+
+                top: 65px;
+                left: 0;
+                right: 0;
+
+                background: #0c0634;
+
+                padding: 20px;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav > ul {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 18px;
+            }
+
+            .dropdown-menu {
+                position: static;
+
+                width: 100%;
+
+                display: none;
+
+                opacity: 1;
+                visibility: visible;
+
+                transform: none;
+
+                box-shadow: none;
+
+                margin-top: 10px;
+
+                border-radius: 5px;
+            }
+
+            .dropdown.open > .dropdown-menu {
+                display: block;
+            }
+
+            .quote-btn {
+                display: none;
+            }
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            .container {
+                width: 92%;
+            }
+
+            .cookie-page {
+                padding: 120px 0 40px;
+            }
+
+            .cookie-card {
+                padding: 25px 20px;
+            }
+
+            .cookie-card h1 {
+                font-size: 32px;
+            }
+
+            .cookie-card h2 {
+                font-size: 21px;
+            }
+
+            .cookie-footer-actions {
+                flex-direction: column;
+            }
+
+            .manage-btn {
+                width: 100%;
+            }
+
+            .cookie-modal-content {
+                padding: 25px 20px;
+            }
+
+            .cookie-setting {
+                align-items: flex-start;
+            }
+
+            .logo img {
+                width: 85px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="container navbar">
+
+        <div class="logo">
+            <a href="index.html">
+                <img
+                    src="assets/images/logo.jpeg"
+                    alt="SLV Rental Zone">
+            </a>
+        </div>
+
+
+        <button
+            class="hamburger"
+            id="hamburger"
+            aria-label="Open navigation menu"
+            type="button">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+
+        <nav id="nav-menu">
+
+            <ul>
+
+                <li>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
+
+
+                <li class="dropdown">
+
+                    <a href="#rental-services">
+                        Rental Services ▾
+                    </a>
+
+                    <ul class="dropdown-menu">
+
+                        <li>
+                            <a href="pages/laptop_rental.html">
+                                Laptop Rental
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="pages/desktop_rental.html">
+                                Desktop Rental
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="pages/printer_rental.html">
+                                Printer Rental
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="pages/server_rental.html">
+                                Server Rental
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="pages/firewall_rental.html">
+                                Firewall Rental
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </li>
+
+
+                <li class="dropdown">
+
+                    <a href="#refurbished-products">
+                        Refurbished Products ▾
+                    </a>
+
+                    <ul class="dropdown-menu">
+
+                        <li>
+                            <a href="pages/refurbished_laptop.html">
+                                Laptops
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="pages/refurbished_computer.html">
+                                Desktops
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="pages/refurbished_server.html">
+                                Servers
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </li>
+
+
+                <li>
+                    <a href="amc.html">
+                        AMC
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="about.html">
+                        About Us
+                    </a>
+                </li>
+
+
+                <li>
+                    <a href="contact.html">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+
+        <a href="form.html" class="quote-btn">
+            Get Quote
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================
+     COOKIE POLICY
+========================= -->
+
+<main class="cookie-page">
+
+    <div class="container">
+
+        <div class="cookie-card">
+
+            <span class="page-label">
+                LEGAL
+            </span>
+
+
+            <h1>
+                Cookie Policy
+            </h1>
+
+
+            <p class="updated">
+                Last Updated: September 25, 2026
+            </p>
+
+
+            <section>
+
+                <h2>
+                    1. What Are Cookies?
+                </h2>
+
+                <p>
+                    Cookies are small text files that are placed on your
+                    device when you visit a website. They help websites
+                    remember information about your visit and improve
+                    your browsing experience.
+                </p>
+
+            </section>
+
+
+            <section>
+
+                <h2>
+                    2. How We Use Cookies
+                </h2>
+
+                <p>
+                    SLV Rental Zone may use cookies and similar technologies
+                    to operate the website, remember your preferences,
+                    understand website usage, and improve our services.
+                </p>
+
+            </section>
+
+
+            <section>
+
+                <h2>
+                    3. Types of Cookies
+                </h2>
+
+
+                <div class="cookie-type">
+
+                    <h3>
+                        Necessary Cookies
+                    </h3>
+
+                    <p>
+                        These cookies are required for essential website
+                        functions. They help the website operate properly
+                        and cannot normally be disabled through our
+                        cookie preference system.
+                    </p>
+
+                </div>
+
+
+                <div class="cookie-type">
+
+                    <h3>
+                        Analytics Cookies
+                    </h3>
+
+                    <p>
+                        These cookies may help us understand how visitors
+                        use our website, such as which pages are visited
+                        and how users interact with the website.
+                    </p>
+
+                </div>
+
+
+                <div class="cookie-type">
+
+                    <h3>
+                        Marketing Cookies
+                    </h3>
+
+                    <p>
+                        These cookies may be used to provide relevant
+                        advertising or measure the effectiveness of
+                        marketing campaigns.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <section>
+
+                <h2>
+                    4. Managing Cookies
+                </h2>
+
+                <p>
+                    You can manage your cookie preferences through the
+                    cookie preferences button below. You can also control
+                    or delete cookies through your browser settings.
+                </p>
+
+            </section>
+
+
+            <section>
+
+                <h2>
+                    5. Third-Party Cookies
+                </h2>
+
+                <p>
+                    Some third-party services used on the website may
+                    place their own cookies. These services may include
+                    analytics, advertising, payment, or other external
+                    services.
+                </p>
+
+            </section>
+
+
+            <section>
+
+                <h2>
+                    6. Changes to This Cookie Policy
+                </h2>
+
+                <p>
+                    We may update this Cookie Policy from time to time
+                    to reflect changes to our website, services, or
+                    applicable requirements.
+                </p>
+
+            </section>
+
+
+            <section>
+
+                <h2>
+                    7. Contact Us
+                </h2>
+
+                <p>
+                    If you have questions about this Cookie Policy,
+                    please contact SLV Rental Zone through the contact
+                    information provided on our website.
+                </p>
+
+            </section>
+
+
+            <div class="cookie-footer-actions">
+
+                <button
+                    type="button"
+                    class="manage-btn"
+                    onclick="openCookieSettings()">
+
+                    Manage Cookie Preferences
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+
+<!-- =========================
+     COOKIE SETTINGS MODAL
+========================= -->
+
+<div
+    id="cookieModal"
+    class="cookie-modal"
+    aria-hidden="true">
+
+
+    <div class="cookie-modal-content">
+
+        <button
+            class="close-btn"
+            type="button"
+            onclick="closeCookieSettings()"
+            aria-label="Close">
+
+            &times;
+
+        </button>
+
+
+        <h2>
+            Cookie Preferences
+        </h2>
+
+
+        <p>
+            Choose which cookies you would like to allow.
+        </p>
+
+
+        <!-- Necessary -->
+
+        <div class="cookie-setting">
+
+            <div>
+
+                <h3>
+                    Necessary Cookies
+                </h3>
+
+                <p>
+                    Required for the website to function.
+                </p>
+
+            </div>
+
+
+            <label class="switch">
+
+                <input
+                    type="checkbox"
+                    checked
+                    disabled>
+
+                <span class="slider"></span>
+
+            </label>
+
+        </div>
+
+
+        <!-- Analytics -->
+
+        <div class="cookie-setting">
+
+            <div>
+
+                <h3>
+                    Analytics Cookies
+                </h3>
+
+                <p>
+                    Help us understand website usage.
+                </p>
+
+            </div>
+
+
+            <label class="switch">
+
+                <input
+                    type="checkbox"
+                    id="analyticsCookies">
+
+                <span class="slider"></span>
+
+            </label>
+
+        </div>
+
+
+        <!-- Marketing -->
+
+        <div class="cookie-setting">
+
+            <div>
+
+                <h3>
+                    Marketing Cookies
+                </h3>
+
+                <p>
+                    Used for marketing and advertising purposes.
+                </p>
+
+            </div>
+
+
+            <label class="switch">
+
+                <input
+                    type="checkbox"
+                    id="marketingCookies">
+
+                <span class="slider"></span>
+
+            </label>
+
+        </div>
+
+
+        <button
+            class="save-btn"
+            type="button"
+            onclick="saveCookiePreferences()">
+
+            Save Preferences
+
+        </button>
+
+
+        <div
+            id="cookieMessage"
+            class="cookie-message">
+
+            Your cookie preferences have been saved.
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<div id="footer"></div>
+
+
+<!-- Your existing footer -->
+<script src="assets/js/footer.js"></script>
+
+
+
+<script>
+
+    /* =====================================
+       COOKIE PREFERENCES
+    ===================================== */
+
+    const COOKIE_KEY = "slv_cookie_preferences";
+
+
+    /* Open settings */
+
+    function openCookieSettings() {
+
+        const modal = document.getElementById("cookieModal");
+
+        loadCookiePreferences();
+
+        modal.classList.add("active");
+
+        modal.setAttribute("aria-hidden", "false");
+
+    }
+
+
+    /* Close settings */
+
+    function closeCookieSettings() {
+
+        const modal = document.getElementById("cookieModal");
+
+        modal.classList.remove("active");
+
+        modal.setAttribute("aria-hidden", "true");
+
+    }
+
+
+    /* Load saved preferences */
+
+    function loadCookiePreferences() {
+
+        const saved =
+            localStorage.getItem(COOKIE_KEY);
+
+
+        if (!saved) {
+            return;
+        }
+
+
+        try {
+
+            const preferences =
+                JSON.parse(saved);
+
+
+            document.getElementById(
+                "analyticsCookies"
+            ).checked =
+                preferences.analytics === true;
+
+
+            document.getElementById(
+                "marketingCookies"
+            ).checked =
+                preferences.marketing === true;
+
+
+        } catch (error) {
+
+            console.error(
+                "Could not load cookie preferences.",
+                error
+            );
+
+        }
+
+    }
+
+
+    /* Save preferences */
+
+    function saveCookiePreferences() {
+
+        const analytics =
+            document.getElementById(
+                "analyticsCookies"
+            ).checked;
+
+
+        const marketing =
+            document.getElementById(
+                "marketingCookies"
+            ).checked;
+
+
+        const preferences = {
+
+            necessary: true,
+
+            analytics: analytics,
+
+            marketing: marketing,
+
+            savedAt:
+                new Date().toISOString()
+
+        };
+
+
+        localStorage.setItem(
+            COOKIE_KEY,
+            JSON.stringify(preferences)
+        );
+
+
+        const message =
+            document.getElementById(
+                "cookieMessage"
+            );
+
+
+        message.classList.add("show");
+
+
+        setTimeout(function () {
+
+            closeCookieSettings();
+
+            message.classList.remove("show");
+
+        }, 1200);
+
+    }
+
+
+    /* Close modal by clicking outside */
+
+    document.addEventListener(
+        "click",
+        function (event) {
+
+            const modal =
+                document.getElementById(
+                    "cookieModal"
+                );
+
+
+            if (event.target === modal) {
+
+                closeCookieSettings();
+
+            }
+
+        }
+    );
+
+
+    /* ESC key closes modal */
+
+    document.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (event.key === "Escape") {
+
+                closeCookieSettings();
+
+            }
+
+        }
+    );
+
+
+    /* =====================================
+       MOBILE NAVIGATION
+    ===================================== */
+
+    const hamburger =
+        document.getElementById("hamburger");
+
+    const navMenu =
+        document.getElementById("nav-menu");
+
+
+    hamburger.addEventListener(
+        "click",
+        function () {
+
+            navMenu.classList.toggle("active");
+
+        }
+    );
+
+
+    /* Mobile dropdown */
+
+    document
+        .querySelectorAll(".dropdown > a")
+        .forEach(function (dropdownLink) {
+
+            dropdownLink.addEventListener(
+                "click",
+                function (event) {
+
+                    if (window.innerWidth <= 1000) {
+
+                        event.preventDefault();
+
+                        const dropdown =
+                            this.parentElement;
+
+                        dropdown.classList.toggle(
+                            "open"
+                        );
+
+                    }
+
+                }
+            );
+
+        });
+
+</script>
+
+
+</body>
+
+</html>
