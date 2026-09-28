@@ -366,55 +366,6 @@
                 padding: 13px 10px;
             }
 
-
-            /* Mobile dropdown */
-
-            .dropdown-menu {
-                position: static;
-
-                width: 100%;
-
-                display: none;
-
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-
-                background: #171044;
-
-                box-shadow: none;
-
-                border-radius: 0;
-
-                padding: 0;
-            }
-
-            .dropdown:hover > .dropdown-menu {
-                display: none;
-            }
-
-            .dropdown.active > .dropdown-menu {
-                display: block;
-            }
-
-            .dropdown-menu li a {
-                color: #fff;
-
-                padding: 11px 25px;
-
-                font-size: 14px;
-            }
-
-            .dropdown-menu li a:hover {
-                background: #21195c;
-
-                color: #cc2326;
-            }
-
-            .dropdown-menu::before {
-                display: none;
-            }
-
             .quote-btn {
                 order: 3;
 
@@ -422,6 +373,95 @@
 
                 font-size: 14px;
             }
+
+    /* =========================
+       DROPDOWN
+    ========================= */
+
+    .dropdown {
+        width: 100%;
+    }
+
+    .dropdown > a {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .dropdown-arrow {
+        margin-left: auto;
+        font-size: 11px;
+    }
+
+    .dropdown-menu {
+        position: static;
+
+        width: 100%;
+        min-width: 0;
+
+        display: none;
+
+        margin: 0;
+        padding: 0;
+
+        background: #100a3d;
+
+        border-radius: 0;
+
+        box-shadow: none;
+
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+
+        overflow: hidden;
+    }
+
+    .dropdown:hover > .dropdown-menu {
+        display: none;
+    }
+
+    .dropdown.active > .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-menu::before {
+        display: none;
+    }
+
+    .dropdown-menu li {
+        width: 100%;
+    }
+
+    .dropdown-menu li a {
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+
+        min-height: 46px;
+
+        padding: 12px 35px;
+
+        color: #d9d9e8 !important;
+
+        font-size: 14px;
+
+        background: rgba(255,255,255,.025);
+
+        border-bottom: 1px solid rgba(255,255,255,.04);
+    }
+
+    .dropdown-menu li a:hover {
+        padding-left: 40px;
+
+        color: #fff !important;
+
+        background: rgba(204,35,38,.15);
+    }
+
+    .dropdown.active .dropdown-arrow {
+        transform: rotate(180deg);
+    }
 
             .logo {
                 order: 1;
@@ -922,37 +962,297 @@
     <script src="assets/js/footer.js"></script>
 
 
-    <!-- Navbar JS -->
-    <script>
-        const hamburger = document.getElementById("hamburger");
-        const navMenu = document.getElementById("nav-menu");
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
-        /* Mobile hamburger */
-        hamburger.addEventListener("click", function () {
-            navMenu.classList.toggle("active");
+    const hamburger = document.getElementById("hamburger");
+    const navMenu = document.getElementById("nav-menu");
+    const dropdowns = document.querySelectorAll(".dropdown");
+
+
+    /* =========================================================
+       HAMBURGER
+    ========================================================= */
+
+    if (hamburger && navMenu) {
+
+        hamburger.addEventListener("click", function (e) {
+
+            e.stopPropagation();
+
             hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+
+            document.body.classList.toggle(
+                "menu-open",
+                navMenu.classList.contains("active")
+            );
+
         });
 
+    }
 
-        /* Mobile dropdown */
-        document.querySelectorAll(".dropdown > a").forEach(function (dropdownLink) {
 
-            dropdownLink.addEventListener("click", function (event) {
+    /* =========================================================
+       MOBILE DROPDOWNS
+    ========================================================= */
 
-                if (window.innerWidth <= 900) {
+    dropdowns.forEach(function (dropdown) {
 
-                    event.preventDefault();
+        const parentLink =
+            dropdown.querySelector(":scope > a");
 
-                    const dropdown = this.parentElement;
+        if (!parentLink) return;
 
-                    dropdown.classList.toggle("active");
+
+        parentLink.addEventListener("click", function (e) {
+
+            if (window.innerWidth <= 767) {
+
+                e.preventDefault();
+                e.stopPropagation();
+
+                const wasOpen =
+                    dropdown.classList.contains("active");
+
+
+                /* Close other dropdowns */
+
+                dropdowns.forEach(function (other) {
+
+                    if (other !== dropdown) {
+                        other.classList.remove("active");
+                    }
+
+                });
+
+
+                /* Toggle current dropdown */
+
+                if (wasOpen) {
+
+                    dropdown.classList.remove("active");
+
+                } else {
+
+                    dropdown.classList.add("active");
+
+                }
+
+            }
+
+        });
+
+    });
+
+
+    /* =========================================================
+       DROPDOWN CHILD LINKS
+       Example: Laptop Rental, Desktop Rental, etc.
+    ========================================================= */
+
+    dropdowns.forEach(function (dropdown) {
+
+        const childLinks =
+            dropdown.querySelectorAll(".dropdown-menu a");
+
+
+        childLinks.forEach(function (link) {
+
+            link.addEventListener("click", function () {
+
+                if (window.innerWidth <= 767) {
+
+                    /* Close dropdown */
+
+                    dropdown.classList.remove("active");
+
+                    /* Close mobile menu */
+
+                    if (hamburger) {
+                        hamburger.classList.remove("active");
+                    }
+
+                    if (navMenu) {
+                        navMenu.classList.remove("active");
+                    }
+
+                    document.body.classList.remove("menu-open");
 
                 }
 
             });
 
         });
-    </script>
+
+    });
+
+
+    /* =========================================================
+       NORMAL NAVIGATION LINKS
+    ========================================================= */
+
+    if (navMenu) {
+
+        navMenu.querySelectorAll("a").forEach(function (link) {
+
+            link.addEventListener("click", function () {
+
+                if (window.innerWidth > 767) {
+                    return;
+                }
+
+
+                const dropdown =
+                    link.closest(".dropdown");
+
+
+                /*
+                 * Dropdown parent:
+                 * DON'T close menu.
+                 */
+
+                if (
+                    dropdown &&
+                    link === dropdown.querySelector(":scope > a")
+                ) {
+                    return;
+                }
+
+
+                /*
+                 * Normal links:
+                 * close mobile menu.
+                 */
+
+                hamburger?.classList.remove("active");
+                navMenu.classList.remove("active");
+                document.body.classList.remove("menu-open");
+
+            });
+
+        });
+
+    }
+
+
+    /* =========================================================
+       CLICK OUTSIDE
+    ========================================================= */
+
+    document.addEventListener("click", function (e) {
+
+        if (window.innerWidth > 767) {
+            return;
+        }
+
+        if (!navMenu || !hamburger) {
+            return;
+        }
+
+
+        const insideNav =
+            navMenu.contains(e.target);
+
+        const insideHamburger =
+            hamburger.contains(e.target);
+
+
+        if (!insideNav && !insideHamburger) {
+
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+
+            document.body.classList.remove("menu-open");
+
+
+            dropdowns.forEach(function (dropdown) {
+
+                dropdown.classList.remove("active");
+
+            });
+
+        }
+
+    });
+
+
+    /* =========================================================
+       RESET WHEN CHANGING TO DESKTOP
+    ========================================================= */
+
+    window.addEventListener("resize", function () {
+
+        if (window.innerWidth > 767) {
+
+            hamburger?.classList.remove("active");
+            navMenu?.classList.remove("active");
+
+            document.body.classList.remove("menu-open");
+
+
+            dropdowns.forEach(function (dropdown) {
+
+                dropdown.classList.remove("active");
+
+            });
+
+        }
+
+    });
+
+
+    /* =========================================================
+       FAQ
+    ========================================================= */
+
+    document.querySelectorAll(".faq-question").forEach(function (question) {
+
+        question.addEventListener("click", function () {
+
+            const item = question.parentElement;
+            const icon = question.querySelector("i");
+
+            document.querySelectorAll(".faq-item").forEach(function (other) {
+
+                if (other !== item) {
+
+                    other.classList.remove("active");
+
+                    const otherIcon =
+                        other.querySelector("i");
+
+                    if (otherIcon) {
+                        otherIcon.classList.remove("fa-minus");
+                        otherIcon.classList.add("fa-plus");
+                    }
+
+                }
+
+            });
+
+
+            item.classList.toggle("active");
+
+
+            if (item.classList.contains("active")) {
+
+                icon.classList.remove("fa-plus");
+                icon.classList.add("fa-minus");
+
+            } else {
+
+                icon.classList.remove("fa-minus");
+                icon.classList.add("fa-plus");
+
+            }
+
+        });
+
+    });
+
+});
+</script>
 
 </body>
 </html>

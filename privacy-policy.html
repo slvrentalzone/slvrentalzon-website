@@ -327,35 +327,94 @@
                 padding: 10px 0;
             }
 
-            .dropdown-menu {
-                position: static;
-                width: 100%;
-                display: none;
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-                box-shadow: none;
-                border-radius: 0;
-                background: #120b43;
-                padding-left: 15px;
-            }
+            /* =========================
+       DROPDOWN
+    ========================= */
 
-            .dropdown:hover > .dropdown-menu {
-                display: block;
-            }
+    .dropdown {
+        width: 100%;
+    }
 
-            .dropdown-menu::before {
-                display: none;
-            }
+    .dropdown > a {
+        width: 100%;
+        justify-content: space-between;
+    }
 
-            .dropdown-menu li a {
-                color: #fff;
-            }
+    .dropdown-arrow {
+        margin-left: auto;
+        font-size: 11px;
+    }
 
-            .dropdown-menu li a:hover {
-                background: transparent;
-                color: #cc2326;
-            }
+    .dropdown-menu {
+        position: static;
+
+        width: 100%;
+        min-width: 0;
+
+        display: none;
+
+        margin: 0;
+        padding: 0;
+
+        background: #100a3d;
+
+        border-radius: 0;
+
+        box-shadow: none;
+
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+
+        overflow: hidden;
+    }
+
+    .dropdown:hover > .dropdown-menu {
+        display: none;
+    }
+
+    .dropdown.active > .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-menu::before {
+        display: none;
+    }
+
+    .dropdown-menu li {
+        width: 100%;
+    }
+
+    .dropdown-menu li a {
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+
+        min-height: 46px;
+
+        padding: 12px 35px;
+
+        color: #d9d9e8 !important;
+
+        font-size: 14px;
+
+        background: rgba(255,255,255,.025);
+
+        border-bottom: 1px solid rgba(255,255,255,.04);
+    }
+
+    .dropdown-menu li a:hover {
+        padding-left: 40px;
+
+        color: #fff !important;
+
+        background: rgba(204,35,38,.15);
+    }
+
+    .dropdown.active .dropdown-arrow {
+        transform: rotate(180deg);
+    }
 
             .hamburger {
                 display: block;
@@ -780,27 +839,244 @@
 <script src="assets/js/footer.js"></script>
 
 <script>
+document.addEventListener("DOMContentLoaded", function () {
+
     const hamburger = document.getElementById("hamburger");
     const navMenu = document.getElementById("nav-menu");
+    const dropdowns = document.querySelectorAll(".dropdown");
 
-    hamburger.addEventListener("click", function () {
-        const isOpen = navMenu.classList.toggle("active");
 
-        hamburger.setAttribute(
-            "aria-expanded",
-            isOpen ? "true" : "false"
-        );
-    });
+    /* =========================================================
+       HAMBURGER
+    ========================================================= */
 
-    // Close mobile menu when clicking a normal navigation link
-    document.querySelectorAll("#nav-menu a").forEach(function (link) {
-        link.addEventListener("click", function () {
-            if (!this.parentElement.classList.contains("dropdown")) {
-                navMenu.classList.remove("active");
-                hamburger.setAttribute("aria-expanded", "false");
-            }
+    if (hamburger && navMenu) {
+
+        hamburger.addEventListener("click", function (e) {
+
+            e.stopPropagation();
+
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+
+            document.body.classList.toggle(
+                "menu-open",
+                navMenu.classList.contains("active")
+            );
+
         });
+
+    }
+
+
+    /* =========================================================
+       MOBILE DROPDOWNS
+    ========================================================= */
+
+    dropdowns.forEach(function (dropdown) {
+
+        const parentLink =
+            dropdown.querySelector(":scope > a");
+
+        if (!parentLink) return;
+
+
+        parentLink.addEventListener("click", function (e) {
+
+            if (window.innerWidth <= 767) {
+
+                e.preventDefault();
+                e.stopPropagation();
+
+                const wasOpen =
+                    dropdown.classList.contains("active");
+
+
+                /* Close other dropdowns */
+
+                dropdowns.forEach(function (other) {
+
+                    if (other !== dropdown) {
+                        other.classList.remove("active");
+                    }
+
+                });
+
+
+                /* Toggle current dropdown */
+
+                if (wasOpen) {
+
+                    dropdown.classList.remove("active");
+
+                } else {
+
+                    dropdown.classList.add("active");
+
+                }
+
+            }
+
+        });
+
     });
+
+
+    /* =========================================================
+       DROPDOWN CHILD LINKS
+       Example: Laptop Rental, Desktop Rental, etc.
+    ========================================================= */
+
+    dropdowns.forEach(function (dropdown) {
+
+        const childLinks =
+            dropdown.querySelectorAll(".dropdown-menu a");
+
+
+        childLinks.forEach(function (link) {
+
+            link.addEventListener("click", function () {
+
+                if (window.innerWidth <= 767) {
+
+                    /* Close dropdown */
+
+                    dropdown.classList.remove("active");
+
+                    /* Close mobile menu */
+
+                    if (hamburger) {
+                        hamburger.classList.remove("active");
+                    }
+
+                    if (navMenu) {
+                        navMenu.classList.remove("active");
+                    }
+
+                    document.body.classList.remove("menu-open");
+
+                }
+
+            });
+
+        });
+
+    });
+
+
+    /* =========================================================
+       NORMAL NAVIGATION LINKS
+    ========================================================= */
+
+    if (navMenu) {
+
+        navMenu.querySelectorAll("a").forEach(function (link) {
+
+            link.addEventListener("click", function () {
+
+                if (window.innerWidth > 767) {
+                    return;
+                }
+
+
+                const dropdown =
+                    link.closest(".dropdown");
+
+
+                /*
+                 * Dropdown parent:
+                 * DON'T close menu.
+                 */
+
+                if (
+                    dropdown &&
+                    link === dropdown.querySelector(":scope > a")
+                ) {
+                    return;
+                }
+
+
+                /*
+                 * Normal links:
+                 * close mobile menu.
+                 */
+
+                hamburger?.classList.remove("active");
+                navMenu.classList.remove("active");
+                document.body.classList.remove("menu-open");
+
+            });
+
+        });
+
+    }
+
+
+    /* =========================================================
+       CLICK OUTSIDE
+    ========================================================= */
+
+    document.addEventListener("click", function (e) {
+
+        if (window.innerWidth > 767) {
+            return;
+        }
+
+        if (!navMenu || !hamburger) {
+            return;
+        }
+
+
+        const insideNav =
+            navMenu.contains(e.target);
+
+        const insideHamburger =
+            hamburger.contains(e.target);
+
+
+        if (!insideNav && !insideHamburger) {
+
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+
+            document.body.classList.remove("menu-open");
+
+
+            dropdowns.forEach(function (dropdown) {
+
+                dropdown.classList.remove("active");
+
+            });
+
+        }
+
+    });
+
+
+    /* =========================================================
+       RESET WHEN CHANGING TO DESKTOP
+    ========================================================= */
+
+    window.addEventListener("resize", function () {
+
+        if (window.innerWidth > 767) {
+
+            hamburger?.classList.remove("active");
+            navMenu?.classList.remove("active");
+
+            document.body.classList.remove("menu-open");
+
+
+            dropdowns.forEach(function (dropdown) {
+
+                dropdown.classList.remove("active");
+
+            });
+
+        }
+
+    });
+});
 </script>
 
 </body>
