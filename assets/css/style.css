@@ -461,7 +461,7 @@ nav a.active::after{
     backdrop-filter: blur(10px);
     color: white;
     cursor: pointer;
-    z-index: 100;
+    z-index: 50;
 }
 
 .prev {
@@ -1975,7 +1975,7 @@ animation:floatBackground 12s ease-in-out infinite;
         height: 42px;
         flex-shrink: 0;
         cursor: pointer;
-        z-index: 300;
+        z-index: 400;
     }
 
     /* =========================
@@ -2004,7 +2004,7 @@ animation:floatBackground 12s ease-in-out infinite;
         box-shadow:
             0 20px 40px rgba(0,0,0,.25);
 
-        z-index: 250;
+        z-index: 350;
     }
 
     nav.active {
