@@ -196,7 +196,7 @@ nav a.active {
 }
 
 .contact-hero{
-    height:45vh;
+    height:55vh;
     background:
     linear-gradient(rgba(8,17,45,.75),rgba(8,17,45,.75)),
     url(../images/banner.jpeg) center/cover;

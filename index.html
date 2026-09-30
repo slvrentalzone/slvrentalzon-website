@@ -74,12 +74,12 @@ function gtag_report_conversion(url) {
             <ul>
 
                 <li>
-                    <a class="active" href="#hero">Home</a>
+                    <a class="active" href="index.html">Home</a>
                 </li>
 
                 <!-- Rental Services -->
                 <li class="dropdown">
-                    <a href="#rental-services">
+                    <a href="pages/rental-services.html">
                         Rental Services ▾
                     </a>
 
@@ -94,7 +94,7 @@ function gtag_report_conversion(url) {
 
                 <!-- Refurbished Products -->
                 <li class="dropdown">
-                    <a href="#refurbished-products">
+                    <a href="pages/refurbished-products.html">
                         Refurbished Products ▾
                     </a>
 
@@ -176,7 +176,7 @@ function gtag_report_conversion(url) {
                 operations and presentation purposes.
             </p>
 
-            <a href="#renatl-services" class="btn">
+            <a href="pages/rental-services.html" class="btn">
                 Explore Services
             </a>
 
@@ -199,7 +199,7 @@ function gtag_report_conversion(url) {
                 Top quality laptops, desktops, and servers with warranty.
             </p>
 
-            <a href="#refurbished-products" class="btn">
+            <a href="pages/refurbished-products.html" class="btn">
                 Explore Products
             </a>
 
@@ -1211,7 +1211,6 @@ function gtag_report_conversion(url) {
             </div>
         </article>
 
-
         <article class="vehicle-card" data-category="refurbished">
             <div class="vehicle-image">
                 <img src="assets/images/r_desktop.jpg"
@@ -1308,12 +1307,18 @@ function gtag_report_conversion(url) {
         </article>
 
     </div>
+    <div class="load-more-wrapper">
+    <button id="loadMoreBtn" class="load-more-btn">
+        Load More
+        <i class="fa-solid fa-chevron-down"></i>
+    </button>
 </div>
 
+</div>
 
 </section>
 
-<section class="why-choose-section reveal" data-aos="slide-right">
+<section class="why-choose-section reveal" >
 
     <div class="container">
 
@@ -1352,7 +1357,7 @@ function gtag_report_conversion(url) {
 
 </section>
 
-<section class="benefit-section" data-aos="slide-left">
+<section class="benefit-section">
 
     <div class="container">
 
@@ -1489,7 +1494,130 @@ AOS.init({
 });
 </script>
 
-<script> document.addEventListener("DOMContentLoaded", function () { const filterButtons = document.querySelectorAll( ".services-section .filter-btn" ); const serviceCards = document.querySelectorAll( ".services-section .vehicle-card" ); filterButtons.forEach(function (button) { button.addEventListener("click", function () { const filter = this.getAttribute("data-filter"); /* Active button */ filterButtons.forEach(function (btn) { btn.classList.remove("active"); }); this.classList.add("active"); /* Filter cards */ serviceCards.forEach(function (card) { const category = card.getAttribute("data-category"); if (filter === "all" || category === filter) { card.style.display = "flex"; requestAnimationFrame(function () { card.style.opacity = "1"; card.style.transform = "translateY(0)"; }); } else { card.style.opacity = "0"; card.style.transform = "translateY(10px)"; setTimeout(function () { card.style.display = "none"; }, 200); } }); }); }); }); </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const servicesSection = document.getElementById("services");
+
+    if (!servicesSection) return;
+
+    const serviceGrid = servicesSection.querySelector(".vehicle-grid");
+
+    const serviceCards = Array.from(serviceGrid.children).filter(function (element) {
+        return element.classList.contains("vehicle-card");
+    });
+
+    const filterButtons = servicesSection.querySelectorAll(".filter-btn");
+
+    const loadMoreBtn = servicesSection.querySelector("#loadMoreBtn");
+
+    const itemsPerLoad = 6;
+
+    let currentFilter = "all";
+
+    let visibleCount = itemsPerLoad;
+
+
+    function getFilteredCards() {
+
+        return serviceCards.filter(function (card) {
+
+            return (
+                currentFilter === "all" ||
+                card.getAttribute("data-category") === currentFilter
+            );
+
+        });
+
+    }
+
+
+    function updateServices() {
+
+        const filteredCards = getFilteredCards();
+
+
+        /* Hide only service cards */
+
+        serviceCards.forEach(function (card) {
+
+            card.style.display = "none";
+
+        });
+
+
+        /* Show first 6 / next 6 / etc. */
+
+        filteredCards.forEach(function (card, index) {
+
+            if (index < visibleCount) {
+
+                card.style.display = "flex";
+
+            }
+
+        });
+
+
+        /* Show/hide Load More */
+
+        if (visibleCount < filteredCards.length) {
+
+            loadMoreBtn.style.display = "inline-flex";
+
+        } else {
+
+            loadMoreBtn.style.display = "none";
+
+        }
+
+    }
+
+
+    /* Load More */
+
+    loadMoreBtn.addEventListener("click", function () {
+
+        visibleCount += itemsPerLoad;
+
+        updateServices();
+
+    });
+
+
+    /* Filters */
+
+    filterButtons.forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+            filterButtons.forEach(function (btn) {
+
+                btn.classList.remove("active");
+
+            });
+
+            this.classList.add("active");
+
+
+            currentFilter = this.getAttribute("data-filter");
+
+            visibleCount = itemsPerLoad;
+
+            updateServices();
+
+        });
+
+    });
+
+
+    /* Initial */
+
+    updateServices();
+
+});
+</script>
+
 <div class="floating-buttons">
 
     <a

@@ -1742,10 +1742,78 @@ animation:floatBackground 12s ease-in-out infinite;
     box-shadow:
         0 12px 25px rgba(37, 211, 102, 0.30);
 }
-/* =========================================================
-   FINAL RESPONSIVE FIX
-   Put this at the VERY END of your CSS
-========================================================= */
+/* ================================
+   LOAD MORE
+================================ */
+
+.load-more-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.load-more-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 14px 30px;
+    border: none;
+    border-radius: 8px;
+
+    background: #111827;
+    color: #fff;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.load-more-btn:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+}
+
+.load-more-btn i {
+    font-size: 13px;
+    transition: transform 0.3s ease;
+}
+
+.load-more-btn:hover i {
+    transform: translateY(3px);
+}
+
+/* Hidden cards */
+.vehicle-card.load-hidden {
+    display: none;
+}
+
+/* Optional animation */
+.vehicle-card.load-show {
+    animation: loadCard 0.4s ease forwards;
+}
+
+@keyframes loadCard {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 576px) {
+    .load-more-btn {
+        width: 100%;
+        max-width: 280px;
+    }
+}
 
 /* =========================
    LARGE TABLET / LAPTOP
